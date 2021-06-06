@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Image
+  - C_Bun
+  - C_Cheese
+  - C_Lettuce
+  - C_Meat
+  - C_MiddieBun
+  - C_Tomato
+  - C_Order Paper
+  - Side
+  - C_BunUp
+  - VipOrder
+  - Order2
+  - Timer
+  - Memory
+  - P_Bun
+  - P_Cheese
+  - P_Lettuce
+  - P_Meat
+  - P_MiddieBun
+  - P_Tomato
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
