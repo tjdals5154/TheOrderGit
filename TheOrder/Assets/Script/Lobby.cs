@@ -31,10 +31,11 @@ public class Lobby : MonoBehaviour
     public GameObject _SignBG;
     public GameObject _PVPBG;
 
+    public Text _PVPname;
+
     public GameObject _Win;
     public GameObject _Lose;
     public GameObject _RoomName;
-    public Text _PVPname;
 
     public GameObject _1;
     public GameObject _2;
@@ -257,10 +258,15 @@ public class Lobby : MonoBehaviour
     public void OnPVP()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.ButtonSound);
-        _PVPname.text = PlayerPrefs.GetString("Sign");
-        _PVPname.text = _PVPname.text.ToString();
-        _PVPBG.SetActive(true);
-        _ChallengeBG.SetActive(false);
+        Invoke("OnPvP", 0.35f);
+        //_PVPname.text = PlayerPrefs.GetString("Sign");
+        //_PVPname.text = _PVPname.text.ToString();
+        //_PVPBG.SetActive(true);
+        //_ChallengeBG.SetActive(false);
+    }
+    void OnPvP()
+    {
+        SceneManager.LoadScene("PVPRoom");
     }
     public void OnOK()
     {

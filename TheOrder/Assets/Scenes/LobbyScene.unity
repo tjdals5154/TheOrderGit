@@ -2111,10 +2111,10 @@ MonoBehaviour:
   _ChallengeBG: {fileID: 610974145}
   _SignBG: {fileID: 590805949}
   _PVPBG: {fileID: 106232686}
+  _PVPname: {fileID: 396848964}
   _Win: {fileID: 165257555}
   _Lose: {fileID: 11234083}
   _RoomName: {fileID: 2064399506}
-  _PVPname: {fileID: 396848964}
   _1: {fileID: 464785336}
   _2: {fileID: 355208063}
   _ok: {fileID: 786634646}

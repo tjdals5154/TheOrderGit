@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PVPScene.unity
     guid: 0a8e3484876c4db4f869e49966759538
+  - enabled: 1
+    path: Assets/Scenes/PVPRoom.unity
+    guid: b6dfda7ff51c2fc4a89e71d20163de35
   m_configObjects: {}

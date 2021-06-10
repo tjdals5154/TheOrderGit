@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class P_Button : MonoBehaviour
 {
     private static P_Button _instance;
@@ -52,6 +53,19 @@ public class P_Button : MonoBehaviour
     {
         _BunDown.sprite = _BDown;
         _BunUp.sprite = _BDown;
+
+
+        // 네트워크 플레이어(로드된 햄버거 프리팹)를 찾아서 Canvas 자식 객체로 만들어주기
+        // NetworkIdentity 
+        /*
+        Canvas canvas = FindObjectOfType<Canvas>();
+
+        NetworIdentity[] netIdList = FindObjectsOfType<NetworIdentity>();
+        foreach(NetworIdentity netId in netIdList)
+        {
+            netId.transform.parent = canvas.transform;
+        }
+        */
     }
 
     // Update is called once per frame
