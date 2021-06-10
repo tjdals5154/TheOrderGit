@@ -162,23 +162,59 @@ public class OrderShow : MonoBehaviour
 
             if (paper._orderNum < 6)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 50 * Time.deltaTime);
-            }
-            else if (paper._orderNum < 21)
-            {
                 _Corderpaper[i].transform.Translate(Vector2.right * 100 * Time.deltaTime);
             }
-            else if (paper._orderNum < 31)
+            else if (paper._orderNum < 9)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 130 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 120 * Time.deltaTime);
             }
-            else if (paper._orderNum < 41)
+            else if (paper._orderNum < 11)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 140 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 13)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 160 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 15)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 180 * Time.deltaTime);
             }
-            else if (paper._orderNum >= 41)
+            else if (paper._orderNum < 17)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 200 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 19)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 220 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 21)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 240 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 23)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 260 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 25)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 280 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 27)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 300 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 29)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 320 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 31)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 340 * Time.deltaTime);
+            }
+            else if (paper._orderNum >= 31)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 340 * Time.deltaTime);
             }
         }
     }

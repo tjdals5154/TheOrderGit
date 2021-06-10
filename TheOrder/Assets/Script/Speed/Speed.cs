@@ -159,13 +159,25 @@ public class Speed : MonoBehaviour
         PlayerPrefs.SetInt("Combo", _Combo);
         PlayerPrefs.SetInt("Money", _Money);
         PlayerPrefs.SetFloat("Speed1", S_Game.Ins._Time);
-
         float prevBestSpeed = PlayerPrefs.GetFloat("Speed");
 
-        if (prevBestSpeed >= S_Game.Ins._Time)
+        if (PlayerPrefs.HasKey("Speed"))
         {
-            PlayerPrefs.SetFloat("Speed", S_Game.Ins._Time);
+            if (prevBestSpeed >= S_Game.Ins._Time)
+            {
+                PlayerPrefs.SetFloat("Speed", S_Game.Ins._Time);
+            }
         }
+        else
+        {
+            if (prevBestSpeed < S_Game.Ins._Time)
+            {
+                PlayerPrefs.SetFloat("Speed", S_Game.Ins._Time);
+            }
+        }
+
+        
+        
 
         _ORDERNUM.text = "" + _ordernum.ToString();
         _BESTSPEEDNUM.text = "" + S_Game.Ins._Time.ToString();
