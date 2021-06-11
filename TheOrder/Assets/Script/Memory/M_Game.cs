@@ -250,7 +250,7 @@ public class M_Game : MonoBehaviour
     {
         if (_to.isOn)
         {
-            Handheld.Vibrate();
+            MyHandheld.Vibrate();
         }
     }
 }

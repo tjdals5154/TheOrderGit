@@ -24,6 +24,7 @@ TagManager:
   - P_Meat
   - P_MiddieBun
   - P_Tomato
+  - Hamburger
   layers:
   - Default
   - TransparentFX

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{2554B609-A909-B4D1-F74E-67B4FAB697F1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebTransport", "SimpleWebTransport.csproj", "{321EAB54-B41E-C83A-FAD5-2B6B3665E1A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror", "Mirror.csproj", "{23085104-A6C6-A07B-CDC4-E409A69546BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telepathy", "Telepathy.csproj", "{F5C199F3-E4DE-A0B4-FA6E-612F6EB06828}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{2554B609-A909-B4D1-F74E-67B4FAB697F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mirror.Components", "Mirror.Components.csproj", "{03599F1D-AB61-FF8C-3E2A-924D41F0460F}"
 EndProject
@@ -29,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2554B609-A909-B4D1-F74E-67B4FAB697F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2554B609-A909-B4D1-F74E-67B4FAB697F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2554B609-A909-B4D1-F74E-67B4FAB697F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2554B609-A909-B4D1-F74E-67B4FAB697F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{321EAB54-B41E-C83A-FAD5-2B6B3665E1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{321EAB54-B41E-C83A-FAD5-2B6B3665E1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{321EAB54-B41E-C83A-FAD5-2B6B3665E1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{F5C199F3-E4DE-A0B4-FA6E-612F6EB06828}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5C199F3-E4DE-A0B4-FA6E-612F6EB06828}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5C199F3-E4DE-A0B4-FA6E-612F6EB06828}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2554B609-A909-B4D1-F74E-67B4FAB697F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2554B609-A909-B4D1-F74E-67B4FAB697F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2554B609-A909-B4D1-F74E-67B4FAB697F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2554B609-A909-B4D1-F74E-67B4FAB697F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03599F1D-AB61-FF8C-3E2A-924D41F0460F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{03599F1D-AB61-FF8C-3E2A-924D41F0460F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03599F1D-AB61-FF8C-3E2A-924D41F0460F}.Release|Any CPU.ActiveCfg = Release|Any CPU
