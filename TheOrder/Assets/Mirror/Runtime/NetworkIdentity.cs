@@ -21,6 +21,7 @@ namespace Mirror
 
     public struct NetworkIdentitySerialization
     {
+
         public float tickTimeStamp;
         public NetworkWriter ownerWriter;
         public NetworkWriter observersWriter;

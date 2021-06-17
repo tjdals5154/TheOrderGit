@@ -12,7 +12,7 @@ public class MyHandheld
 #if UNITY_STANDALONE
 
 #else
-        Handheld.Vibrate();
+        //Handheld.Vibrate();
 
 #endif
     }

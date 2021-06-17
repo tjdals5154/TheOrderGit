@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Mirror;
 
 public class PVPRoom : MonoBehaviour
 {
@@ -59,7 +60,9 @@ public class PVPRoom : MonoBehaviour
     }
     void C()
     {
-        SceneManager.LoadScene("LobbyScene");
+        //SceneManager.LoadScene("LobbyScene");
+        NetworkManager.Ins.StopHost();
+
     }
     public void On1()
     {

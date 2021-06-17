@@ -12,6 +12,23 @@ namespace Mirror
     [HelpURL("https://mirror-networking.gitbook.io/docs/components/network-manager-hud")]
     public class NetworkManagerHUD : MonoBehaviour
     {
+        private static NetworkManagerHUD _instance;
+
+        public static NetworkManagerHUD Ins
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<NetworkManagerHUD>();
+                    if (null == _instance)
+                    {
+
+                    }
+                }
+                return _instance;
+            }
+        }
         NetworkManager manager;
 
         [Obsolete("showGUI will be removed unless someone has a valid use case. Simply use or don't use the HUD component.")]
@@ -61,6 +78,7 @@ namespace Mirror
 
         void StartButtons()
         {
+
             if (!NetworkClient.active)
             {
                 // Server + Client
@@ -68,7 +86,9 @@ namespace Mirror
                 {
                     if (GUILayout.Button("Host (Server + Client)"))
                     {
+
                         manager.StartHost();
+                        
                     }
                 }
 

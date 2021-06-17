@@ -9,6 +9,7 @@ namespace kcp2k
 
     public abstract class KcpConnection
     {
+
         protected Socket socket;
         protected EndPoint remoteEndpoint;
         internal Kcp kcp;
@@ -647,6 +648,7 @@ namespace kcp2k
             Log.Info("KCP Connection: Disconnected.");
             state = KcpState.Disconnected;
             OnDisconnected?.Invoke();
+
         }
 
         // get remote endpoint

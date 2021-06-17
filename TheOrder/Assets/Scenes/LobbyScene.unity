@@ -5519,7 +5519,7 @@ MonoBehaviour:
   Port: 7777
   NoDelay: 1
   Interval: 10
-  Timeout: 10000
+  Timeout: 3000
   FastResend: 2
   CongestionWindow: 0
   SendWindowSize: 4096
@@ -5579,7 +5579,7 @@ MonoBehaviour:
   onlineScene: Assets/Scenes/PVPRoom.unity
   transport: {fileID: 628969571}
   networkAddress: localhost
-  maxConnections: 5
+  maxConnections: 2
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}
@@ -5588,7 +5588,7 @@ MonoBehaviour:
   playerSpawnMethod: 0
   spawnPrefabs: []
   showRoomGUI: 1
-  minPlayers: 1
+  minPlayers: 2
   roomPlayerPrefab: {fileID: 114033720796874720, guid: deae2134a1d77704b9c595efe69767dd, type: 3}
   RoomScene: Assets/Scenes/PVPRoom.unity
   GameplayScene: Assets/Scenes/PVPScene.unity

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Mirror;
 
 public class P_Game : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class P_Game : MonoBehaviour
     public Text _CountText;
     public Text _MATCHNAME;
     public Text _RENAME;
-    bool _Matching;
+    public bool _Matching;
 
     public GameObject _Bellcover;
     public GameObject _321B;
@@ -76,7 +77,6 @@ public class P_Game : MonoBehaviour
 
         _RENAME.text = PlayerPrefs.GetString("Sign");
         _RENAME.text = _RENAME.text.ToString();
-
         _Count = 3;
         _Matching = false;
         _off = true;
@@ -116,6 +116,11 @@ public class P_Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (NetworkRoomManager.Ins.allPlayersReady == true)
+        {
+            _Matching = true;
+        }
+
         if (_Matching == true)
         {
             _Count -= Time.deltaTime ;
@@ -244,8 +249,7 @@ public class P_Game : MonoBehaviour
     }
     public void OnMatch()
     {
-        _Matching = true;
-        
+        //_Matching = true;
     }
 
     public void OnBack()
@@ -262,8 +266,11 @@ public class P_Game : MonoBehaviour
     }
     public void OnPVPHome()
     {
+        NetworkManager.Ins.StopHost();
+
         Time.timeScale = 1;
-        SceneManager.LoadScene("LobbyScene");
+
+        //SceneManager.LoadScene("LobbyScene");
     }
     void Scene()
     {

@@ -17,6 +17,23 @@ namespace Mirror
     [HelpURL("https://mirror-networking.gitbook.io/docs/components/network-room-manager")]
     public class NetworkRoomManager : NetworkManager
     {
+        private static NetworkRoomManager _instance;
+
+        public static NetworkRoomManager Ins
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<NetworkRoomManager>();
+                    if (null == _instance)
+                    {
+
+                    }
+                }
+                return _instance;
+            }
+        }
         public struct PendingPlayer
         {
             public NetworkConnection conn;
