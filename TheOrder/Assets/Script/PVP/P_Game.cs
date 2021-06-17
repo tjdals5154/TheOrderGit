@@ -111,15 +111,29 @@ public class P_Game : MonoBehaviour
         _class.fillAmount = 0.5f;
         _ordershow.enabled = false;
         _MenuBG.SetActive(false);
+
+
+        /*NetworkRoomManager netRoomMgr = FindObjectOfType<NetworkRoomManager>();
+        if (netRoomMgr && NetworkClient.active)
+        {
+            foreach (NetworkRoomPlayer p in netRoomMgr.roomSlots)
+            {
+                if (p.isLocalPlayer)
+                {
+                    p.CmdChangeReadyState(true);
+                }
+            }
+        }*/
+        _Matching = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (NetworkRoomManager.Ins.allPlayersReady == true)
-        {
-            _Matching = true;
-        }
+       // if (NetworkRoomManager.Ins.allPlayersReady == true)
+      //  {
+       //     _Matching = true;
+        //}
 
         if (_Matching == true)
         {

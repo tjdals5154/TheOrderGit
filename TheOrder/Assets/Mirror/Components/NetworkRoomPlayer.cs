@@ -11,7 +11,23 @@ namespace Mirror
     [HelpURL("https://mirror-networking.gitbook.io/docs/components/network-room-player")]
     public class NetworkRoomPlayer : NetworkBehaviour
     {
-        
+        private static NetworkRoomPlayer _instance;
+
+        public static NetworkRoomPlayer Ins
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<NetworkRoomPlayer>();
+                    if (null == _instance)
+                    {
+
+                    }
+                }
+                return _instance;
+            }
+        }
         /// <summary>
         /// This flag controls whether the default UI is shown for the room player.
         /// <para>As this UI is rendered using the old GUI system, it is only recommended for testing purposes.</para>
@@ -61,6 +77,7 @@ namespace Mirror
                     room.CallOnClientEnterRoom();
             }
             else Debug.LogError("RoomPlayer could not find a NetworkRoomManager. The RoomPlayer requires a NetworkRoomManager object to function. Make sure that there is one in the scene.");
+
         }
 
         public virtual void OnDisable()
@@ -167,12 +184,11 @@ namespace Mirror
                 GetComponent<NetworkIdentity>().connectionToClient.Disconnect();
             }
 
-            if (isServer && index == 1)
-            {
-                NetworkRoomManager.Ins.pendingPlayers.Clear();
-                NetworkRoomManager.Ins.allPlayersReady = true;
-                
-            }
+            //if (isServer && index == 1)
+            //{
+            //    NetworkRoomManager.Ins.pendingPlayers.Clear();
+            //    NetworkRoomManager.Ins.allPlayersReady = true;
+            //}
 
             GUILayout.EndArea();
         }

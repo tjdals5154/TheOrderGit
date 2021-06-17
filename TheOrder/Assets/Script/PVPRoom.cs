@@ -30,6 +30,20 @@ public class PVPRoom : MonoBehaviour
 
         _PVPname.text = PlayerPrefs.GetString("Sign");
         _PVPname.text = _PVPname.text.ToString();
+
+        NetworkRoomManager netRoomMgr = FindObjectOfType<NetworkRoomManager>();
+
+        if (netRoomMgr )
+        {
+            foreach (NetworkRoomPlayer p in netRoomMgr.roomSlots)
+            {
+                if (p.isLocalPlayer)
+                {
+                    p.CmdChangeReadyState(true);
+                }
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -45,6 +59,9 @@ public class PVPRoom : MonoBehaviour
     void OK()
     {
         SceneManager.LoadScene("PVPScene");
+
+
+
     }
     public void OnC()
     {
