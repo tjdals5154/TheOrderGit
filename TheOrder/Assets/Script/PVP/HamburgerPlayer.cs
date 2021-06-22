@@ -4,7 +4,7 @@ using UnityEngine;
 using Mirror;
 using UnityEngine.UI;
 
-public class HamburgerPlayer : MonoBehaviour
+public class HamburgerPlayer : NetworkBehaviour
 {
 
     void Start()
@@ -24,11 +24,19 @@ public class HamburgerPlayer : MonoBehaviour
         }
         else
         {
-            netId.gameObject.name = "Player2";
+            netId.gameObject.name = "Hamburger2";
         }
 
         netId.transform.parent = canvas.transform;
-
-
     }
+
+    void Update()
+    {
+        if (isLocalPlayer && Input.GetKeyDown(KeyCode.Q)) 
+        {
+            P_Button.Ins.YourHamburger();
+        }
+    }
+
+    
 }

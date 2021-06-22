@@ -932,6 +932,7 @@ namespace Mirror
             if (mode == NetworkManagerMode.Host)
             {
                 FinishLoadSceneHost();
+                
             }
             // server-only mode?
             else if (mode == NetworkManagerMode.ServerOnly)
@@ -942,9 +943,12 @@ namespace Mirror
             else if (mode == NetworkManagerMode.ClientOnly)
             {
                 FinishLoadSceneClientOnly();
+                
             }
             // otherwise we called it after stopping when loading offline scene.
             // do nothing then.
+
+            
         }
 
         // finish load scene part for host mode. makes code easier and is
@@ -1024,12 +1028,13 @@ namespace Mirror
                 OnClientConnect(clientReadyConnection);
                 clientLoadedScene = true;
                 clientReadyConnection = null;
+                
             }
-
             if (NetworkClient.isConnected)
             {
                 OnClientSceneChanged(NetworkClient.connection);
             }
+            
         }
 
         /// <summary>

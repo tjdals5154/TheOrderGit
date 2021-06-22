@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Mirror;
 
 
-public class P_Button : MonoBehaviour
+public class P_Button : NetworkBehaviour
 {
     private static P_Button _instance;
 
@@ -59,22 +59,26 @@ public class P_Button : MonoBehaviour
         // 네트워크 플레이어(로드된 햄버거 프리팹)를 찾아서 Canvas 자식 객체로 만들어주기
         // NetworkIdentity 
         
-        /*Canvas canvas = FindObjectOfType<Canvas>();
+        //Canvas canvas = FindObjectOfType<Canvas>();
 
-        NetworkIdentity[] netIdList = FindObjectsOfType<NetworkIdentity>();
-        foreach(NetworkIdentity netId in netIdList)
-        {
-            if (netId.hasAuthority)
-            {
-                netId.gameObject.name = "Hamburger";
-            }
-            else
-            {
-                netId.gameObject.name = "Player2";
-            }
+        //NetworkIdentity[] netIdList = FindObjectsOfType<NetworkIdentity>();
+        //foreach(NetworkIdentity netId in netIdList)
+        //{
+        //    if (netId.hasAuthority)
+        //    {
+                
+        //        //NetworkRoomPlayer.Ins.readyToBegin = true;
+        //        netId.gameObject.name = "Player1";
+        //    }
+        //    else
+        //    {
+                
+        //        //NetworkRoomPlayer.Ins.readyToBegin = true;
+        //        netId.gameObject.name = "Player2";
+        //    }
 
-            netId.transform.parent = canvas.transform;
-        }*/
+        //    netId.transform.parent = canvas.transform;
+        //}
         
     }
 
@@ -99,7 +103,12 @@ public class P_Button : MonoBehaviour
         {
             ResetNumText();
         }
+        
     }
+
+    
+
+
 
     public void ResetNumText()
     {
@@ -143,7 +152,11 @@ public class P_Button : MonoBehaviour
             Destroy(m, 0f);
         }
     }
-
+    [Command]
+    public void YourHamburger()
+    {
+        Debug.Log("ddddedef");
+    }
     public void OnBun()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.BunBtn);

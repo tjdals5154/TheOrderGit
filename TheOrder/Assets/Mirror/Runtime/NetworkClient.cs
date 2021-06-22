@@ -1325,7 +1325,9 @@ namespace Mirror
             // NetworkClient.Shutdown. we can't assume that the server is
             // supposed to be shut down too!
             if (Transport.activeTransport != null)
+            {
                 Transport.activeTransport.ClientDisconnect();
+            }
             connection = null;
         }
     }

@@ -7,8 +7,25 @@ using Mirror;
 
 public class PVPRoom : MonoBehaviour
 {
-    public Text _PVPname;
+    private static PVPRoom _instance;
 
+    public static PVPRoom Ins
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<PVPRoom>();
+                if (null == _instance)
+                {
+
+                }
+            }
+            return _instance;
+        }
+    }
+    public Text _PVPname;
+    bool _Click;
     int _PVPInt;
     public Text _PVPText;
 
@@ -22,28 +39,31 @@ public class PVPRoom : MonoBehaviour
     public GameObject _ok;
     public GameObject _okBtn;
 
+    public GameObject _cBtn;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         _PVPInt = PlayerPrefs.GetInt("PVP", 0);
         _PVPText.text = "" + (int)_PVPInt;
 
         _PVPname.text = PlayerPrefs.GetString("Sign");
         _PVPname.text = _PVPname.text.ToString();
+        _cBtn.SetActive(false);
 
-        NetworkRoomManager netRoomMgr = FindObjectOfType<NetworkRoomManager>();
+        //NetworkRoomManager netRoomMgr = FindObjectOfType<NetworkRoomManager>();
 
-        if (netRoomMgr )
-        {
-            foreach (NetworkRoomPlayer p in netRoomMgr.roomSlots)
-            {
-                if (p.isLocalPlayer)
-                {
-                    p.CmdChangeReadyState(true);
-                }
-            }
-        }
-
+        //if (netRoomMgr)
+        //{
+        //    foreach (NetworkRoomPlayer p in netRoomMgr.roomSlots)
+        //    {
+        //        if (p.isLocalPlayer)
+        //        {
+        //            p.CmdChangeReadyState(true);
+        //        }
+        //    }
+        //}
     }
 
     // Update is called once per frame
@@ -58,10 +78,9 @@ public class PVPRoom : MonoBehaviour
     }
     void OK()
     {
-        SceneManager.LoadScene("PVPScene");
-
-
-
+        NetworkManager.Ins.StartClient();
+        _cBtn.SetActive(true);
+        _Click = true;
     }
     public void OnC()
     {
@@ -77,8 +96,17 @@ public class PVPRoom : MonoBehaviour
     }
     void C()
     {
-        //SceneManager.LoadScene("LobbyScene");
-        NetworkManager.Ins.StopHost();
+        if (_Click == true)
+        {
+            NetworkManager.Ins.StopHost();
+            _Click = false;
+            _cBtn.SetActive(false);
+        }
+        else
+        {
+            SceneManager.LoadScene("LobbyScene");
+            _cBtn.SetActive(false);
+        }
 
     }
     public void On1()
@@ -91,6 +119,7 @@ public class PVPRoom : MonoBehaviour
         _Win.SetActive(true);
         _Lose.SetActive(true);
         _RoomName.SetActive(false);
+        
     }
     public void On2()
     {

@@ -78,7 +78,6 @@ namespace Mirror
 
         void StartButtons()
         {
-
             if (!NetworkClient.active)
             {
                 // Server + Client
@@ -86,9 +85,7 @@ namespace Mirror
                 {
                     if (GUILayout.Button("Host (Server + Client)"))
                     {
-
                         manager.StartHost();
-                        
                     }
                 }
 
@@ -97,6 +94,7 @@ namespace Mirror
                 if (GUILayout.Button("Client"))
                 {
                     manager.StartClient();
+                    
                 }
                 manager.networkAddress = GUILayout.TextField(manager.networkAddress);
                 GUILayout.EndHorizontal();

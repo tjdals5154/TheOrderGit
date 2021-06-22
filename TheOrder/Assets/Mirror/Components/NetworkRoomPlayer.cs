@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Mirror
 {
@@ -55,6 +56,8 @@ namespace Mirror
 
         #region Unity Callbacks
 
+        
+
         /// <summary>
         /// Do not use Start - Override OnStartHost / OnStartClient instead!
         /// </summary>
@@ -105,6 +108,8 @@ namespace Mirror
                 room.ReadyStatusChanged();
             }
         }
+
+        
 
         #endregion
 
@@ -184,11 +189,11 @@ namespace Mirror
                 GetComponent<NetworkIdentity>().connectionToClient.Disconnect();
             }
 
-            //if (isServer && index == 1)
-            //{
-            //    NetworkRoomManager.Ins.pendingPlayers.Clear();
-            //    NetworkRoomManager.Ins.allPlayersReady = true;
-            //}
+            if (isServer && index == 1)
+            {
+                NetworkRoomManager.Ins.pendingPlayers.Clear();
+                NetworkRoomManager.Ins.allPlayersReady = true;
+            }
 
             GUILayout.EndArea();
         }

@@ -52,6 +52,8 @@ public class P_Game : MonoBehaviour
     public GameObject _MATCHBG;
     public GameObject _REBG;
 
+    
+
     [SerializeField]
     Slider _slider1 = null;
     [SerializeField]
@@ -112,27 +114,32 @@ public class P_Game : MonoBehaviour
         _ordershow.enabled = false;
         _MenuBG.SetActive(false);
 
-
-        /*NetworkRoomManager netRoomMgr = FindObjectOfType<NetworkRoomManager>();
-        if (netRoomMgr && NetworkClient.active)
-        {
-            foreach (NetworkRoomPlayer p in netRoomMgr.roomSlots)
-            {
-                if (p.isLocalPlayer)
-                {
-                    p.CmdChangeReadyState(true);
-                }
-            }
-        }*/
+        //NetworkRoomManager netRoomMgr = FindObjectOfType<NetworkRoomManager>();
+        //if (netRoomMgr && NetworkClient.active)
+        //{
+        //    foreach (NetworkRoomPlayer p in netRoomMgr.roomSlots)
+        //    {
+        //        if (p.hasAuthority)
+        //        {
+        //            p.readyToBegin = true;
+        //        }
+        //        else
+        //        {
+        //            p.readyToBegin = true;
+        //        }
+        //    }
+        //}
+        NetworkRoomPlayer.Ins.readyToBegin = true;
         _Matching = true;
     }
+
 
     // Update is called once per frame
     void Update()
     {
-       // if (NetworkRoomManager.Ins.allPlayersReady == true)
-      //  {
-       //     _Matching = true;
+        //if (NetworkRoomPlayer.Ins.readyToBegin == true)
+        //{
+        //    _Matching = true;
         //}
 
         if (_Matching == true)
@@ -150,6 +157,9 @@ public class P_Game : MonoBehaviour
                 _openbell = true;
                 _ordershow.enabled = true;
                 _Cover.SetActive(false);
+
+                GameObject bell = GameObject.Find("Canvas/Hamburger");
+                bell.transform.SetSiblingIndex(2);
 
                 if (_321 == true)
                 {
@@ -187,7 +197,11 @@ public class P_Game : MonoBehaviour
             }
 
         }
+        
     }
+
+
+    
 
     void Shutter()
     {
@@ -280,9 +294,19 @@ public class P_Game : MonoBehaviour
     }
     public void OnPVPHome()
     {
-        NetworkManager.Ins.StopHost();
-
         Time.timeScale = 1;
+        NetworkIdentity netId = GetComponent<NetworkIdentity>();
+
+        
+        if (netId.isLocalPlayer)
+        {
+            NetworkManager.Ins.StopHost();
+        }
+        else
+        {
+            NetworkManager.Ins.StopClient();
+        }
+
 
         //SceneManager.LoadScene("LobbyScene");
     }
