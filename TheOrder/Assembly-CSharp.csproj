@@ -84,6 +84,7 @@
     <Compile Include="Assets\Script\Shop.cs" />
     <Compile Include="Assets\Script\PVP\P_Game.cs" />
     <Compile Include="Assets\Script\Memory\Memory.cs" />
+    <Compile Include="Assets\ParrelSync\Examples\CustomArgumentExample.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
@@ -95,6 +96,7 @@
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
+     <None Include="Assets\ParrelSync\VERSION.txt" />
      <None Include="Assets\ScriptTemplates\52-Mirror__Network Behaviour-NewNetworkBehaviour.cs.txt" />
      <None Include="Assets\Mirror\Notice.txt" />
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\License.txt" />
@@ -721,6 +723,10 @@
     <ProjectReference Include="SimpleWebTransport.csproj">
       <Project>{321EAB54-B41E-C83A-FAD5-2B6B3665E1A0}</Project>
       <Name>SimpleWebTransport</Name>
+    </ProjectReference>
+    <ProjectReference Include="ParrelSync.csproj">
+      <Project>{F9A0E0AB-3FEF-7BF5-733A-7B1162A1BFF8}</Project>
+      <Name>ParrelSync</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
