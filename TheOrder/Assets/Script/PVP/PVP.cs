@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
-public class PVP : MonoBehaviour
+public class PVP : NetworkBehaviour
 {
     private static PVP _instance;
 
@@ -35,12 +36,19 @@ public class PVP : MonoBehaviour
     public int _ordernum;
     public int _BESTPVP;
     public int _PVP;
+    public int _PVP2;
+    public int _Win;
+    public int _Win2;
 
     public Text _ORDERNUM;
     public Text _BESTPVPNUM;
-    public Text _PVPNUM;
 
+    public Text _PVPNUM;
+    public Text _PVPNUM2;
     public Text _ShMyOrder;
+    public Text _ShMyOrder2;
+    public Text _WinText;
+    public Text _WinText2;
 
     public float _RandomTime = 0;
 
@@ -49,6 +57,11 @@ public class PVP : MonoBehaviour
     public bool _VipSpeedbool;
     public bool _Chochoice;
     bool _wrong;
+
+    public GameObject _win1;
+    public GameObject _win2;
+    public GameObject _lose1;
+    public GameObject _lose2;
 
 
     public List<GameObject> _Corderpaper = new List<GameObject>();
@@ -84,8 +97,12 @@ public class PVP : MonoBehaviour
 
         _ORDERNUM.text = "" + _ordernum;
         _BESTPVPNUM.text = "" + _BESTPVP;
-        _PVPNUM.text = "" + _PVP;
+        //_PVPNUM.text = "" + _PVP;
+        //_PVPNUM2.text = "" + _PVP;
         _ShMyOrder.text = "" + _PVP;
+        _ShMyOrder2.text = "" + _PVP2;
+        _WinText.text = "" + _Win;
+        _WinText2.text = "" + _Win2;
 
         if (_PVP > _BESTPVP)
         {
@@ -96,7 +113,7 @@ public class PVP : MonoBehaviour
         {
             if (P_Game.Ins._pause == false)
             {
-                ClassSpeed();
+                //ClassSpeed();
             }
             else
             {
@@ -113,6 +130,39 @@ public class PVP : MonoBehaviour
             Speed2();
         }
     }
+    public void PVPB()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.PVPBTn();
+            }
+        }
+    }
+
+    public void Lose()
+    {
+        _Win2 += 1;
+        _WinText2.text = _Win2.ToString();
+        _win1.SetActive(false);
+        _lose1.SetActive(false);
+        _win2.SetActive(true);
+        _lose2.SetActive(true);
+    }
+    public void Win()
+    {
+        _Win += 1;
+        _WinText.text = _Win.ToString();
+        _win1.SetActive(true);
+        _lose1.SetActive(true);
+        _win2.SetActive(false);
+        _lose2.SetActive(false);
+    }
+
     void VipReset()
     {
         _RandomTime += Time.deltaTime;
@@ -129,29 +179,29 @@ public class PVP : MonoBehaviour
             _RandomTime = 0;
         }
     }
-    void ClassSpeed()
-    {
-        if (_ordernum < 6)
-        {
-            P_Game.Ins._class.fillAmount += 0.00010f;
-        }
-        else if (_ordernum < 21)
-        {
-            P_Game.Ins._class.fillAmount += 0.00015f;
-        }
-        else if (_ordernum < 31)
-        {
-            P_Game.Ins._class.fillAmount += 0.00020f;
-        }
-        else if (_ordernum < 41)
-        {
-            P_Game.Ins._class.fillAmount += 0.00025f;
-        }
-        else if (_ordernum >= 41)
-        {
-            P_Game.Ins._class.fillAmount += 0.00030f;
-        }
-    }
+    //void ClassSpeed()
+    //{
+    //    if (_ordernum < 6)
+    //    {
+    //        P_Game.Ins._class.fillAmount += 0.00010f;
+    //    }
+    //    else if (_ordernum < 21)
+    //    {
+    //        P_Game.Ins._class.fillAmount += 0.00015f;
+    //    }
+    //    else if (_ordernum < 31)
+    //    {
+    //        P_Game.Ins._class.fillAmount += 0.00020f;
+    //    }
+    //    else if (_ordernum < 41)
+    //    {
+    //        P_Game.Ins._class.fillAmount += 0.00025f;
+    //    }
+    //    else if (_ordernum >= 41)
+    //    {
+    //        P_Game.Ins._class.fillAmount += 0.00030f;
+    //    }
+    //}
 
     void Speed()
     {
@@ -207,16 +257,31 @@ public class PVP : MonoBehaviour
 
         if (_wrong == false)
         {
-            _Money -= 5;
+            //_Money -= 5;
             _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-            P_Game.Ins._class.fillAmount += 0.05f;
+            //P_Game.Ins._class.fillAmount += 0.05f;
             SoundManager.Ins.PlaySound(SoundManager.FxTypes.BellFSound);
+            //P_Game.Ins._class.fillAmount = 1;
+            P_Game.Ins.Over();
         }
         else
         {
             SoundManager.Ins.PlaySound(SoundManager.FxTypes.BellSound);
         }
         _wrong = false;
+    }
+
+    public void PVPScore()
+    {
+        _PVP += 1;
+        _PVPNUM.text = _PVP.ToString();
+        _ShMyOrder.text = _PVP.ToString();
+    }
+    public void PVPScore2()
+    {
+        _PVP2 += 1;
+        _PVPNUM2.text = _PVP2.ToString();
+        _ShMyOrder2.text = _PVP2.ToString();
     }
 
     public void Same()
@@ -249,31 +314,31 @@ public class PVP : MonoBehaviour
                     {
                         _Money += 3;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        P_Game.Ins._class.fillAmount -= 0.10f;
+                        //P_Game.Ins._class.fillAmount -= 0.10f;
                     }
                     else if (_ordernum < 21)
                     {
                         _Money += 5;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        P_Game.Ins._class.fillAmount -= 0.15f;
+                        //P_Game.Ins._class.fillAmount -= 0.15f;
                     }
                     else if (_ordernum < 31)
                     {
                         _Money += 8;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        P_Game.Ins._class.fillAmount -= 0.20f;
+                        //P_Game.Ins._class.fillAmount -= 0.20f;
                     }
                     else if (_ordernum < 41)
                     {
                         _Money += 12;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        P_Game.Ins._class.fillAmount -= 0.25f;
+                        //P_Game.Ins._class.fillAmount -= 0.25f;
                     }
                     else if (_ordernum >= 41)
                     {
                         _Money += 12;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        P_Game.Ins._class.fillAmount -= 0.25f;
+                        //P_Game.Ins._class.fillAmount -= 0.25f;
                     }
                     _Corderpaper.Remove(op.gameObject);
                     Destroy(op.gameObject);
@@ -281,16 +346,15 @@ public class PVP : MonoBehaviour
                     P_Button.Ins.ResetNumText();
                     SoundManager.Ins.PlaySound(SoundManager.FxTypes.TearSound);
 
-                    _PVP += 1;
-                    _PVPNUM.text = _PVP.ToString();
-                    _ShMyOrder.text = _PVP.ToString();
+                    PVPB();
+
                     _wrong = true;
                     break;
                 }
             }
         }
-
     }
+
     public void Same2()
     {
         VipOrder op2 = null;
@@ -336,7 +400,7 @@ public class PVP : MonoBehaviour
         }
     }
 
-    void New()
+    public void New()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.Printer);
         GameObject CorderPrefab = Resources.Load("C_PVP Paper") as GameObject;

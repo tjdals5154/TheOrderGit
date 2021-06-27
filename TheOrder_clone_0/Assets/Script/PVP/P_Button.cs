@@ -46,9 +46,17 @@ public class P_Button : NetworkBehaviour
     public Vector2 _posion5;
     public Vector2 _posion6;
 
+    public Vector2 _posion21;
+    public Vector2 _posion22;
+    public Vector2 _posion23;
+    public Vector2 _posion24;
+    public Vector2 _posion25;
+    public Vector2 _posion26;
+
     public Text[] _numText;
 
     public List<int> _topping = new List<int>();
+
     //private NetworkIdentity _Playernetid;
     // Start is called before the first frame update
     void Start()
@@ -86,11 +94,11 @@ public class P_Button : NetworkBehaviour
         {
             _numText[j].text = string.Format("{0}", _topping[j]).ToString();
 
-            if (10 < _topping.Count)
+            if (10 <= _topping.Count)
             {
                 Done();
                 PVP.Ins.Same();
-
+                
                 _BunDown.sprite = _BDown;
                 _BunUp.sprite = _BDown;
             }
@@ -103,10 +111,6 @@ public class P_Button : NetworkBehaviour
         
     }
 
-    
-
-
-
     public void ResetNumText()
     {
         for (int j = 0; j < 10; j++)
@@ -116,6 +120,19 @@ public class P_Button : NetworkBehaviour
     }
 
     public void Done()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.Done();
+            }
+        }
+    }
+    public void _Done()
     {
         _topping.Clear();
         GameObject[] _B = GameObject.FindGameObjectsWithTag("C_Bun");
@@ -163,15 +180,13 @@ public class P_Button : NetworkBehaviour
                p.OnBun();
             }
         }
-
-        
     }
-
-    
     public void _OnBun()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.BunBtn);
+
         Instantiate(_bun, _posion1, Quaternion.identity, GameObject.Find("Hamburger").transform);
+
 
         int _bunBtn = 0;
         _topping.Add(_bunBtn);
@@ -179,7 +194,28 @@ public class P_Button : NetworkBehaviour
         _BunDown.sprite = _BUp;
         _BunUp.sprite = _BUp;
     }
+    public void B()
+    {
+        GameObject obj = Instantiate(_bun, _posion21, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        obj.transform.localScale = new Vector2(0.25f, 0.045f);
+        _BunDown.sprite = _BUp;
+        _BunUp.sprite = _BUp;
+    }
+
     public void OnTomato()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.OnTomato();
+            }
+        }
+    }
+    public void _OnTomato()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.Tomato);
         Instantiate(_tomato, _posion2, Quaternion.identity, GameObject.Find("Hamburger").transform);
@@ -188,7 +224,26 @@ public class P_Button : NetworkBehaviour
 
         _topping.Add(_tomatoBtn);
     }
+    public void T()
+    {
+        GameObject obj = Instantiate(_tomato, _posion22, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        obj.transform.localScale = new Vector2(0.25f, 0.045f);
+    }
+
     public void OnCheese()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.OnCheese();
+            }
+        }
+    }
+    public void _OnCheese()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.Cheese);
         Instantiate(_cheese, _posion3, Quaternion.identity, GameObject.Find("Hamburger").transform);
@@ -197,7 +252,26 @@ public class P_Button : NetworkBehaviour
 
         _topping.Add(_cheeseBtn);
     }
+    public void C()
+    {
+        GameObject obj = Instantiate(_cheese, _posion23, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        obj.transform.localScale = new Vector2(0.25f, 0.045f);
+    }
+
     public void OnLettuce()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.OnLettuce();
+            }
+        }
+    }
+    public void _OnLettuce()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.LettuceBtn);
         Instantiate(_lettuce, _posion4, Quaternion.identity, GameObject.Find("Hamburger").transform);
@@ -206,7 +280,26 @@ public class P_Button : NetworkBehaviour
 
         _topping.Add(_lettuceBtn);
     }
+    public void L()
+    {
+        GameObject obj = Instantiate(_lettuce, _posion24, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        obj.transform.localScale = new Vector2(0.25f, 0.045f);
+    }
+
     public void OnMeat()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.OnMeat();
+            }
+        }
+    }
+    public void _OnMeat()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.Meat);
         Instantiate(_meat, _posion5, Quaternion.identity, GameObject.Find("Hamburger").transform);
@@ -215,7 +308,26 @@ public class P_Button : NetworkBehaviour
 
         _topping.Add(_meatBtn);
     }
+    public void M()
+    {
+        GameObject obj = Instantiate(_meat, _posion25, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        obj.transform.localScale = new Vector2(0.25f, 0.045f);
+    }
+
     public void OnMiddelbun()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.OnMiddelbun();
+            }
+        }
+    }
+    public void _OnMiddelbun()
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.BunBtn);
         Instantiate(_middlebun, _posion6, Quaternion.identity, GameObject.Find("Hamburger").transform);
@@ -223,6 +335,11 @@ public class P_Button : NetworkBehaviour
         int _middlebunBtn = 5;
 
         _topping.Add(_middlebunBtn);
+    }
+    public void MB()
+    {
+        GameObject obj = Instantiate(_middlebun, _posion26, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        obj.transform.localScale = new Vector2(0.25f, 0.045f);
     }
 
 }

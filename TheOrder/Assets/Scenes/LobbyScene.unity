@@ -2105,6 +2105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20bdce994d296a4c82ad2a991e0ccfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   _MenuBG: {fileID: 1306557222}
   _CouponBG: {fileID: 1454346596}
   _ShopBG: {fileID: 180503540}
@@ -2112,6 +2114,7 @@ MonoBehaviour:
   _SignBG: {fileID: 590805949}
   _PVPBG: {fileID: 106232686}
   _PVPname: {fileID: 396848964}
+  _PVPname2: {fileID: 0}
   _Win: {fileID: 165257555}
   _Lose: {fileID: 11234083}
   _RoomName: {fileID: 2064399506}

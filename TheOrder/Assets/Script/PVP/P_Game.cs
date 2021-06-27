@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Mirror;
 
-public class P_Game : MonoBehaviour
+public class P_Game : NetworkBehaviour
 {
     private static P_Game _instance;
 
@@ -32,6 +32,7 @@ public class P_Game : MonoBehaviour
     public PVP _ordershow;
     public bool _openbell = false;
     public bool _pause;
+
     public Image _class;
     public GameObject _Cover;
     Vector2 _openShutter = new Vector2(540, 3300);
@@ -42,8 +43,13 @@ public class P_Game : MonoBehaviour
     bool _321;
     public float _Count;
     public Text _CountText;
+
     public Text _MATCHNAME;
     public Text _RENAME;
+
+    public Text _MATCHNAME2;
+    public Text _RENAME2;
+
     public bool _Matching;
 
     public GameObject _Bellcover;
@@ -51,8 +57,6 @@ public class P_Game : MonoBehaviour
     public GameObject _Restart;
     public GameObject _MATCHBG;
     public GameObject _REBG;
-
-    
 
     [SerializeField]
     Slider _slider1 = null;
@@ -79,6 +83,7 @@ public class P_Game : MonoBehaviour
 
         _RENAME.text = PlayerPrefs.GetString("Sign");
         _RENAME.text = _RENAME.text.ToString();
+
         _Count = 3;
         _Matching = false;
         _off = true;
@@ -133,6 +138,7 @@ public class P_Game : MonoBehaviour
         _Matching = true;
     }
 
+    
 
     // Update is called once per frame
     void Update()
@@ -161,6 +167,9 @@ public class P_Game : MonoBehaviour
                 GameObject bell = GameObject.Find("Canvas/Hamburger");
                 bell.transform.SetSiblingIndex(2);
 
+                GameObject bell2 = GameObject.Find("Canvas/Hamburger2");
+                bell2.transform.SetSiblingIndex(3);
+
                 if (_321 == true)
                 {
                     SoundManager.Ins.PlaySound(SoundManager.FxTypes.BellSound);
@@ -179,29 +188,40 @@ public class P_Game : MonoBehaviour
             PlayerPrefs.DeleteAll();
         }
 
-        if (_class.fillAmount > 0.88f)
-        {
-            if (_time == false)
-            {
-                SoundManager.Ins.TimerSource.Play();
-                _time = true;
-            }
+        //if (_class.fillAmount > 0.88f)
+        //{
+        //    if (_time == false)
+        //    {
+        //        SoundManager.Ins.TimerSource.Play();
+        //        _time = true;
+        //    }
 
-        }
-        if (_class.fillAmount < 0.88f)
-        {
-            if (_time == true)
-            {
-                SoundManager.Ins.TimerSource.Stop();
-                _time = false;
-            }
+        //}
+        //if (_class.fillAmount < 0.88f)
+        //{
+        //    if (_time == true)
+        //    {
+        //        SoundManager.Ins.TimerSource.Stop();
+        //        _time = false;
+        //    }
 
-        }
+        //}
         
     }
 
+    public void Over()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
 
-    
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.Over();
+            }
+        }
+    }
 
     void Shutter()
     {

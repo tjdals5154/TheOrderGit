@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Mirror;
 
-public class Lobby : MonoBehaviour
+public class Lobby : NetworkBehaviour
 {
     private static Lobby _instance;
 
@@ -32,6 +33,7 @@ public class Lobby : MonoBehaviour
     public GameObject _PVPBG;
 
     public Text _PVPname;
+    public Text _PVPname2;
 
     public GameObject _Win;
     public GameObject _Lose;
@@ -312,6 +314,7 @@ public class Lobby : MonoBehaviour
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.ButtonSound);
         _ChallengeBG.SetActive(false);
     }
+
     public void OnSign()
     {
         GameObject musicMgrObj = GameObject.Find("MusicManager");
@@ -330,8 +333,8 @@ public class Lobby : MonoBehaviour
 
         _PVPname.text = _Ca.ToString();
         PlayerPrefs.SetString("Sign", _PVPname.text);
-    }
 
+    }
 
     public void SetSoundVolume(float volume1)
     {

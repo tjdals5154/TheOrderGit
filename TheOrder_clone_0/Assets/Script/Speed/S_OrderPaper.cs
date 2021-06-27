@@ -53,13 +53,13 @@ public class S_OrderPaper : MonoBehaviour
     {
         if (Speed.Ins._ordernum >= 0)
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 7; i++)
             {
                 int h = 0;
 
                 if (0 < i && i < 9)
                 {
-                    h = Random.Range(1, 2);
+                    h = Random.Range(1, 5);
                 }
                 _topping.Add(h);
             }

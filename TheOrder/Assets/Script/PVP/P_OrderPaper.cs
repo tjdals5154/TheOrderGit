@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
 
-public class P_OrderPaper : MonoBehaviour
+public class P_OrderPaper : NetworkBehaviour
 {
     public int _orderNum = 0;
 
@@ -15,6 +16,8 @@ public class P_OrderPaper : MonoBehaviour
 
     public List<int> _topping = new List<int>();
 
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,7 @@ public class P_OrderPaper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -38,13 +42,14 @@ public class P_OrderPaper : MonoBehaviour
         if (other.gameObject.tag == "Side")
         {
             P_Game.Ins.vibOn();
-            P_Game.Ins._class.fillAmount += 0.07f;
+            //P_Game.Ins._class.fillAmount += 0.07f;
             PVP.Ins._Corderpaper.Remove(_orderpaper);
             Destroy(_orderpaper);
 
-            PVP.Ins._Money -= 7;
+            //PVP.Ins._Money -= 7;
             PVP.Ins._Reward.text = "" + string.Format("{0:#,###0}", PVP.Ins._Money);
-
+            //P_Game.Ins._class.fillAmount = 1;
+            P_Game.Ins.Over();
         }
     }
 
@@ -127,7 +132,7 @@ public class P_OrderPaper : MonoBehaviour
         }
     }
 
-    void ImageChange(int a, int b)
+    public void ImageChange(int a, int b)
     {
         if (a == 0)
         {
