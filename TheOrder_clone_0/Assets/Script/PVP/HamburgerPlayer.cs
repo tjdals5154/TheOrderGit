@@ -24,8 +24,15 @@ public class HamburgerPlayer : NetworkBehaviour
         }
     }
 
+    [SyncVar]
+    public string playerName;
+
+    
     void Start()
     {
+        if( isLocalPlayer )
+            playerName = PlayerPrefs.GetString("Sign");
+
         // 네트워크 플레이어(로드된 햄버거 프리팹)를 찾아서 Canvas 자식 객체로 만들어주기
         // NetworkIdentity 
 
@@ -45,6 +52,24 @@ public class HamburgerPlayer : NetworkBehaviour
 
         netId.transform.parent = canvas.transform;
     }
+    [Command]
+    public void WL()
+    {
+        WLRPC();
+    }
+    [ClientRpc]
+    public void WLRPC()
+    {
+        if (isLocalPlayer)
+        {
+            P_Game.Ins.MyWin();
+        }
+        else
+        {
+            P_Game.Ins.YourWin();
+        }
+    }
+
 
     [Command]
     public void Over()
@@ -83,7 +108,6 @@ public class HamburgerPlayer : NetworkBehaviour
             PVP.Ins.PVPScore2();
         }
     }
-
     [Command]
     public void Done()
     {
@@ -95,12 +119,14 @@ public class HamburgerPlayer : NetworkBehaviour
         if (isLocalPlayer)
         {
             P_Button.Ins._Done();
+            //P_Button.Ins._BunDown.sprite = P_Button.Ins._BDown;
+            //P_Button.Ins._BunUp.sprite = P_Button.Ins._BDown;
         }
         else
         {
-            P_Button.Ins._Done();
-            P_Button.Ins._BunDown.sprite = P_Button.Ins._BDown;
-            P_Button.Ins._BunUp.sprite = P_Button.Ins._BDown;
+            P_Button.Ins._Done2();
+            //P_Button.Ins._BunDown.sprite = P_Button.Ins._BDown;
+            //P_Button.Ins._BunUp.sprite = P_Button.Ins._BDown;
         }
     }
 
@@ -155,7 +181,6 @@ public class HamburgerPlayer : NetworkBehaviour
         else
         {
             P_Button.Ins.C();
-            //Debug.Log("oncheeserpc");
         }
     }
 
@@ -174,7 +199,6 @@ public class HamburgerPlayer : NetworkBehaviour
         else
         {
             P_Button.Ins.L();
-            //Debug.Log("onlettucerpc");
         }
     }
 
@@ -193,7 +217,6 @@ public class HamburgerPlayer : NetworkBehaviour
         else
         {
             P_Button.Ins.M();
-            //Debug.Log("onmeatrpc");
         }
     }
 
@@ -212,7 +235,6 @@ public class HamburgerPlayer : NetworkBehaviour
         else
         {
             P_Button.Ins.MB();
-            //Debug.Log("onmiddelbunrpc");
         }
     }
 

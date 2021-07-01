@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Mirror;
 
-public class PVPRoom : MonoBehaviour
+public class PVPRoom : NetworkBehaviour
 {
     private static PVPRoom _instance;
 
@@ -26,11 +26,19 @@ public class PVPRoom : MonoBehaviour
     }
     public Text _PVPname;
     bool _Click;
-    int _PVPInt;
+    public int _PVPInt;
     public Text _PVPText;
+
+    int _WinInt;
+    public Text _WinText;
+
+    public int _LoseInt;
+    public Text _LoseText;
 
     public GameObject _Win;
     public GameObject _Lose;
+    public GameObject _WinTest;
+    public GameObject _LoseTest;
     public GameObject _RoomName;
 
     public GameObject _1;
@@ -40,6 +48,11 @@ public class PVPRoom : MonoBehaviour
     public GameObject _okBtn;
 
     public GameObject _cBtn;
+
+    private void Awake()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +64,18 @@ public class PVPRoom : MonoBehaviour
         _PVPname.text = PlayerPrefs.GetString("Sign");
         _PVPname.text = _PVPname.text.ToString();
         _cBtn.SetActive(false);
+
+        if (PlayerPrefs.HasKey("Win"))
+        {
+            _WinInt = PlayerPrefs.GetInt("Win", 0);
+            _WinText.text = "" + (int)_WinInt;
+        }
+
+        if (PlayerPrefs.HasKey("Lose"))
+        {
+            _LoseInt = PlayerPrefs.GetInt("Lose", 0);
+            _LoseText.text = "" + (int)_LoseInt;
+        }
 
         //NetworkRoomManager netRoomMgr = FindObjectOfType<NetworkRoomManager>();
 
@@ -64,6 +89,8 @@ public class PVPRoom : MonoBehaviour
         //        }
         //    }
         //}
+
+
     }
 
     // Update is called once per frame
@@ -91,6 +118,8 @@ public class PVPRoom : MonoBehaviour
         _okBtn.SetActive(false);
         _Win.SetActive(true);
         _Lose.SetActive(true);
+        _WinTest.SetActive(true);
+        _LoseTest.SetActive(true);
         _RoomName.SetActive(false);
         Invoke("C", 0.35f);
     }
@@ -118,6 +147,8 @@ public class PVPRoom : MonoBehaviour
         _okBtn.SetActive(true);
         _Win.SetActive(true);
         _Lose.SetActive(true);
+        _WinTest.SetActive(true);
+        _LoseTest.SetActive(true);
         _RoomName.SetActive(false);
         
     }
@@ -130,6 +161,8 @@ public class PVPRoom : MonoBehaviour
         _okBtn.SetActive(true);
         _Win.SetActive(false);
         _Lose.SetActive(false);
+        _WinTest.SetActive(false);
+        _LoseTest.SetActive(false);
         _RoomName.SetActive(true);
     }
 }

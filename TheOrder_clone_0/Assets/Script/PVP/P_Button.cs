@@ -27,11 +27,17 @@ public class P_Button : NetworkBehaviour
 
     GameObject _Ins;
     public GameObject _bun;
+    public GameObject _bun2;
     public GameObject _middlebun;
+    public GameObject _middlebun2;
     public GameObject _tomato;
+    public GameObject _tomato2;
     public GameObject _cheese;
+    public GameObject _cheese2;
     public GameObject _lettuce;
+    public GameObject _lettuce2;
     public GameObject _meat;
+    public GameObject _meat2;
 
 
     public Image _BunUp;
@@ -134,6 +140,8 @@ public class P_Button : NetworkBehaviour
     }
     public void _Done()
     {
+        _tempCount = 0;
+
         _topping.Clear();
         GameObject[] _B = GameObject.FindGameObjectsWithTag("C_Bun");
         foreach (GameObject b in _B)
@@ -167,6 +175,43 @@ public class P_Button : NetworkBehaviour
         }
     }
 
+    public void _Done2()
+    {
+        _tempCount = 0;
+
+        _topping.Clear();
+        GameObject[] _B = GameObject.FindGameObjectsWithTag("C_Bun2");
+        foreach (GameObject b in _B)
+        {
+            Destroy(b, 0f);
+        }
+        GameObject[] _MB = GameObject.FindGameObjectsWithTag("C_MiddieBun2");
+        foreach (GameObject mb in _MB)
+        {
+            Destroy(mb, 0f);
+        }
+        GameObject[] _C = GameObject.FindGameObjectsWithTag("C_Cheese2");
+        foreach (GameObject c in _C)
+        {
+            Destroy(c, 0f);
+        }
+        GameObject[] _T = GameObject.FindGameObjectsWithTag("C_Tomato2");
+        foreach (GameObject t in _T)
+        {
+            Destroy(t, 0f);
+        }
+        GameObject[] _L = GameObject.FindGameObjectsWithTag("C_Lettuce2");
+        foreach (GameObject l in _L)
+        {
+            Destroy(l, 0f);
+        }
+        GameObject[] _M = GameObject.FindGameObjectsWithTag("C_Meat2");
+        foreach (GameObject m in _M)
+        {
+            Destroy(m, 0f);
+        }
+    }
+
 
     public void OnBun()
     {
@@ -194,12 +239,22 @@ public class P_Button : NetworkBehaviour
         _BunDown.sprite = _BUp;
         _BunUp.sprite = _BUp;
     }
+
+    int _tempCount = 0;
     public void B()
     {
-        GameObject obj = Instantiate(_bun, _posion21, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        GameObject obj = Instantiate(_bun2, _posion21, Quaternion.identity, GameObject.Find("Hamburger2").transform);
         obj.transform.localScale = new Vector2(0.25f, 0.045f);
-        _BunDown.sprite = _BUp;
-        _BunUp.sprite = _BUp;
+
+        if (_tempCount == 0)
+            obj.GetComponent<Image>().sprite = _BDown;
+        else
+            obj.GetComponent<Image>().sprite = _BUp;
+
+        _tempCount++;
+
+        //_BunDown.sprite = _BUp;
+        //_BunUp.sprite = _BUp;
     }
 
     public void OnTomato()
@@ -226,7 +281,7 @@ public class P_Button : NetworkBehaviour
     }
     public void T()
     {
-        GameObject obj = Instantiate(_tomato, _posion22, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        GameObject obj = Instantiate(_tomato2, _posion22, Quaternion.identity, GameObject.Find("Hamburger2").transform);
         obj.transform.localScale = new Vector2(0.25f, 0.045f);
     }
 
@@ -254,7 +309,7 @@ public class P_Button : NetworkBehaviour
     }
     public void C()
     {
-        GameObject obj = Instantiate(_cheese, _posion23, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        GameObject obj = Instantiate(_cheese2, _posion23, Quaternion.identity, GameObject.Find("Hamburger2").transform);
         obj.transform.localScale = new Vector2(0.25f, 0.045f);
     }
 
@@ -282,7 +337,7 @@ public class P_Button : NetworkBehaviour
     }
     public void L()
     {
-        GameObject obj = Instantiate(_lettuce, _posion24, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        GameObject obj = Instantiate(_lettuce2, _posion24, Quaternion.identity, GameObject.Find("Hamburger2").transform);
         obj.transform.localScale = new Vector2(0.25f, 0.045f);
     }
 
@@ -310,7 +365,7 @@ public class P_Button : NetworkBehaviour
     }
     public void M()
     {
-        GameObject obj = Instantiate(_meat, _posion25, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        GameObject obj = Instantiate(_meat2, _posion25, Quaternion.identity, GameObject.Find("Hamburger2").transform);
         obj.transform.localScale = new Vector2(0.25f, 0.045f);
     }
 
@@ -338,7 +393,7 @@ public class P_Button : NetworkBehaviour
     }
     public void MB()
     {
-        GameObject obj = Instantiate(_middlebun, _posion26, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        GameObject obj = Instantiate(_middlebun2, _posion26, Quaternion.identity, GameObject.Find("Hamburger2").transform);
         obj.transform.localScale = new Vector2(0.25f, 0.045f);
     }
 

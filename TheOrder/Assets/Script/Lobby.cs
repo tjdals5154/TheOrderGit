@@ -61,6 +61,7 @@ public class Lobby : NetworkBehaviour
 
     int _MemoryInt;
     public Text _MemoryText;
+    
     int _PVPInt;
     public Text _PVPText;
     int _TrainInt;
@@ -128,6 +129,7 @@ public class Lobby : NetworkBehaviour
         _BSpeedInt = PlayerPrefs.GetFloat("Speed1", 0);
         _BSpeedText.text = "" + (float)_BSpeedInt;
 
+        
 
         _to.isOn = true;
 
@@ -333,6 +335,9 @@ public class Lobby : NetworkBehaviour
 
         _PVPname.text = _Ca.ToString();
         PlayerPrefs.SetString("Sign", _PVPname.text);
+
+        
+
 
     }
 

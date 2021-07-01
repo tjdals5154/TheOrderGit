@@ -26,6 +26,12 @@ TagManager:
   - P_Tomato
   - Hamburger
   - FBell
+  - C_Bun2
+  - C_Cheese2
+  - C_Lettuce2
+  - C_Meat2
+  - C_MiddieBun2
+  - C_Tomato2
   layers:
   - Default
   - TransparentFX

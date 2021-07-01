@@ -29,7 +29,6 @@ public class PVP : NetworkBehaviour
     Text _ordertext;
     GameObject _Ins;
     GameObject _Ins2;
-
     public Text _Reward;
     public int _Money;
 
@@ -37,8 +36,6 @@ public class PVP : NetworkBehaviour
     public int _BESTPVP;
     public int _PVP;
     public int _PVP2;
-    public int _Win;
-    public int _Win2;
 
     public Text _ORDERNUM;
     public Text _BESTPVPNUM;
@@ -47,8 +44,7 @@ public class PVP : NetworkBehaviour
     public Text _PVPNUM2;
     public Text _ShMyOrder;
     public Text _ShMyOrder2;
-    public Text _WinText;
-    public Text _WinText2;
+    
 
     public float _RandomTime = 0;
 
@@ -68,8 +64,17 @@ public class PVP : NetworkBehaviour
     public List<GameObject> _CVipOrder = new List<GameObject>();
 
     // Start is called before the first frame update
+    public void Awake()
+    {
+
+        P_Game.Ins._Win = PlayerPrefs.GetInt("Win", 0);
+        P_Game.Ins._WinText.text = "" + (int)P_Game.Ins._Win;
+
+    }
+
     void Start()
     {
+        
         _Money = PlayerPrefs.GetInt("Money", 0);
         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
         _VipSpeedbool = true;
@@ -79,11 +84,15 @@ public class PVP : NetworkBehaviour
 
         InvokeRepeating("New", 1f, 4f);
         //StopCoroutine("New");
+
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         VipReset();
 
         if (_Money < 0)
@@ -101,8 +110,10 @@ public class PVP : NetworkBehaviour
         //_PVPNUM2.text = "" + _PVP;
         _ShMyOrder.text = "" + _PVP;
         _ShMyOrder2.text = "" + _PVP2;
-        _WinText.text = "" + _Win;
-        _WinText2.text = "" + _Win2;
+
+        P_Game.Ins._WinText.text = "" + P_Game.Ins._Win.ToString();
+        P_Game.Ins._WinText2.text = "" + P_Game.Ins._Win2.ToString();
+
 
         if (_PVP > _BESTPVP)
         {
@@ -129,6 +140,8 @@ public class PVP : NetworkBehaviour
         {
             Speed2();
         }
+
+        
     }
     public void PVPB()
     {
@@ -146,21 +159,26 @@ public class PVP : NetworkBehaviour
 
     public void Lose()
     {
-        _Win2 += 1;
-        _WinText2.text = _Win2.ToString();
+        P_Game.Ins._Win2 += 1;
+        P_Game.Ins._WinText2.text = P_Game.Ins._Win2.ToString();
         _win1.SetActive(false);
         _lose1.SetActive(false);
         _win2.SetActive(true);
         _lose2.SetActive(true);
+
+        //PVPRoom.Ins._LoseInt += 1;
+        //PlayerPrefs.SetFloat("Lose", PVPRoom.Ins._LoseInt);
     }
     public void Win()
     {
-        _Win += 1;
-        _WinText.text = _Win.ToString();
+        P_Game.Ins._Win += 1;
+        P_Game.Ins._WinText.text = P_Game.Ins._Win.ToString();
         _win1.SetActive(true);
         _lose1.SetActive(true);
         _win2.SetActive(false);
         _lose2.SetActive(false);
+
+        PlayerPrefs.SetInt("Win", P_Game.Ins._Win);
     }
 
     void VipReset()
@@ -252,9 +270,9 @@ public class PVP : NetworkBehaviour
         Same2();
         P_Button.Ins.Done();
 
-        P_Button.Ins._BunDown.sprite = P_Button.Ins._BDown;
-        P_Button.Ins._BunUp.sprite = P_Button.Ins._BDown;
-
+        //P_Button.Ins._BunDown.sprite = P_Button.Ins._BDown;
+        //P_Button.Ins._BunUp.sprite = P_Button.Ins._BDown;
+        
         if (_wrong == false)
         {
             //_Money -= 5;
