@@ -49,7 +49,7 @@ public class P_OrderPaper : NetworkBehaviour
             //PVP.Ins._Money -= 7;
             PVP.Ins._Reward.text = "" + string.Format("{0:#,###0}", PVP.Ins._Money);
             //P_Game.Ins._class.fillAmount = 1;
-            P_Game.Ins.Over();
+            //P_Game.Ins.Over();
         }
     }
 

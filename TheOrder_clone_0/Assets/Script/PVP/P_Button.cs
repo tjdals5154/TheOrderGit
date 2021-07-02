@@ -39,6 +39,8 @@ public class P_Button : NetworkBehaviour
     public GameObject _meat;
     public GameObject _meat2;
 
+    int _tempCount = 0;
+    int _tempCount2 = 0;
 
     public Image _BunUp;
     public Image _BunDown;
@@ -105,8 +107,8 @@ public class P_Button : NetworkBehaviour
                 Done();
                 PVP.Ins.Same();
                 
-                _BunDown.sprite = _BDown;
-                _BunUp.sprite = _BDown;
+                //_BunDown.sprite = _BDown;
+                //_BunUp.sprite = _BDown;
             }
         }
 
@@ -114,7 +116,7 @@ public class P_Button : NetworkBehaviour
         {
             ResetNumText();
         }
-        
+
     }
 
     public void ResetNumText()
@@ -173,13 +175,15 @@ public class P_Button : NetworkBehaviour
         {
             Destroy(m, 0f);
         }
+        //_BunDown.sprite = _BDown;
+        //_BunUp.sprite = _BDown;
     }
-
+    
     public void _Done2()
     {
-        _tempCount = 0;
+        _tempCount2 = 0;
 
-        _topping.Clear();
+       // _topping.Clear();
         GameObject[] _B = GameObject.FindGameObjectsWithTag("C_Bun2");
         foreach (GameObject b in _B)
         {
@@ -230,21 +234,12 @@ public class P_Button : NetworkBehaviour
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.BunBtn);
 
-        Instantiate(_bun, _posion1, Quaternion.identity, GameObject.Find("Hamburger").transform);
+        GameObject obj = Instantiate(_bun, _posion1, Quaternion.identity, GameObject.Find("Hamburger").transform);
 
 
         int _bunBtn = 0;
         _topping.Add(_bunBtn);
 
-        _BunDown.sprite = _BUp;
-        _BunUp.sprite = _BUp;
-    }
-
-    int _tempCount = 0;
-    public void B()
-    {
-        GameObject obj = Instantiate(_bun2, _posion21, Quaternion.identity, GameObject.Find("Hamburger2").transform);
-        obj.transform.localScale = new Vector2(0.25f, 0.045f);
 
         if (_tempCount == 0)
             obj.GetComponent<Image>().sprite = _BDown;
@@ -255,6 +250,24 @@ public class P_Button : NetworkBehaviour
 
         //_BunDown.sprite = _BUp;
         //_BunUp.sprite = _BUp;
+    }
+
+    
+    public void B()
+    {
+        GameObject obj2 = Instantiate(_bun2, _posion21, Quaternion.identity, GameObject.Find("Hamburger2").transform);
+        obj2.transform.localScale = new Vector2(0.25f, 0.045f);
+
+        if (_tempCount2 == 0)
+            obj2.GetComponent<Image>().sprite = _BDown;
+        else
+            obj2.GetComponent<Image>().sprite = _BUp;
+
+        _tempCount2++;
+
+        //_BunDown.sprite = _BUp;
+        //_BunUp.sprite = _BUp;
+
     }
 
     public void OnTomato()

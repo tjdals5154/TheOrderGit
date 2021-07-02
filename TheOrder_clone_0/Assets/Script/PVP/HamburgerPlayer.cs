@@ -52,6 +52,7 @@ public class HamburgerPlayer : NetworkBehaviour
 
         netId.transform.parent = canvas.transform;
     }
+
     [Command]
     public void WL()
     {
@@ -70,7 +71,6 @@ public class HamburgerPlayer : NetworkBehaviour
         }
     }
 
-
     [Command]
     public void Over()
     {
@@ -81,13 +81,13 @@ public class HamburgerPlayer : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            P_Game.Ins._class.fillAmount = 1;
-            PVP.Ins.Lose();
+            //P_Game.Ins._class.fillAmount = 1;
+            //PVP.Ins.Lose();
         }
         else
         {
-            P_Game.Ins._class.fillAmount = 1;
-            PVP.Ins.Win();
+            //P_Game.Ins._class.fillAmount = 1;
+            //PVP.Ins.Win();
         }
     }
 
@@ -108,6 +108,7 @@ public class HamburgerPlayer : NetworkBehaviour
             PVP.Ins.PVPScore2();
         }
     }
+    
     [Command]
     public void Done()
     {
@@ -119,17 +120,13 @@ public class HamburgerPlayer : NetworkBehaviour
         if (isLocalPlayer)
         {
             P_Button.Ins._Done();
-            //P_Button.Ins._BunDown.sprite = P_Button.Ins._BDown;
-            //P_Button.Ins._BunUp.sprite = P_Button.Ins._BDown;
+            
         }
         else
         {
             P_Button.Ins._Done2();
-            //P_Button.Ins._BunDown.sprite = P_Button.Ins._BDown;
-            //P_Button.Ins._BunUp.sprite = P_Button.Ins._BDown;
         }
     }
-
     [Command]
     public void OnBun()
     {

@@ -4471,6 +4471,9 @@ MonoBehaviour:
   _BunDown: {fileID: 957304141}
   _BUp: {fileID: 21300000, guid: 26140e0a9c765a7489742712bf5d64b3, type: 3}
   _BDown: {fileID: 21300000, guid: dfcdc539bfd05004ebf4fb6150f1f3e0, type: 3}
+  _BunUp2: {fileID: 3929694629950495079, guid: d3d612fedb3be504a862592812dc5a96, type: 3}
+  _BUp2: {fileID: 21300000, guid: 47cb9d6ae02eae44eb57a0422e905d59, type: 3}
+  _BDown2: {fileID: 21300000, guid: e8373a90bebc5314380fa10c23be6045, type: 3}
   _posion1: {x: 725, y: 1400}
   _posion2: {x: 725, y: 1400}
   _posion3: {x: 725, y: 1340}
