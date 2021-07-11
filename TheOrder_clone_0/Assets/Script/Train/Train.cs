@@ -58,7 +58,7 @@ public class Train : MonoBehaviour
         _wrong = false;
         _BESTTrain = PlayerPrefs.GetInt("Train", 0);
 
-        InvokeRepeating("New", 1f, 1.4f);
+        InvokeRepeating("New", 1f, 1.8f);
         //StopCoroutine("New");
     }
 
@@ -169,7 +169,7 @@ public class Train : MonoBehaviour
                     op._numText[9].text == T_Button.Ins._numText[9].text)
                 {
 
-                    if (_ordernum >= 0)
+                    if (_ordernum >= 1)
                     {
                         _Money += 1;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);

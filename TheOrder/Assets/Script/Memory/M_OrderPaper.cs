@@ -43,20 +43,20 @@ public class M_OrderPaper : MonoBehaviour
         if (other.gameObject.tag == "Side")
         {
             M_Game.Ins.vibOn();
-            M_Game.Ins._class.fillAmount += 0.10f;
+            M_Game.Ins._class.fillAmount += 0.07f;
             Memory.Ins._Corderpaper.Remove(_orderpaper);
             Destroy(_orderpaper);
 
-            Memory.Ins._Money -= 80;
+            //Memory.Ins._Money -= 7;
             Memory.Ins._Reward.text = "" + string.Format("{0:#,###0}", Memory.Ins._Money);
         }
     }
 
     void Level()
     {
-        if (Memory.Ins._ordernum < 6)
+        if (Memory.Ins._ordernum >= 1)
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 6; i++)
             {
                 int h = 0;
 
@@ -67,68 +67,9 @@ public class M_OrderPaper : MonoBehaviour
                 _topping.Add(h);
             }
             _topping.Add(0);
-            _PriceText.text = 10.ToString();
+            _PriceText.text = 1.ToString();
         }
-        else if (Memory.Ins._ordernum < 21)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                int h = 0;
-
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 5);
-                }
-                _topping.Add(h);
-            }
-            _topping.Add(0);
-            _PriceText.text = 15.ToString();
-        }
-        else if (Memory.Ins._ordernum < 31)
-        {
-            for (int i = 0; i < 7; i++)
-            {
-                int h = 0;
-
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 6);
-                }
-                _topping.Add(h);
-            }
-            _topping.Add(0);
-            _PriceText.text = 18.ToString();
-        }
-        else if (Memory.Ins._ordernum < 41)
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                int h = 0;
-
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 6);
-                }
-                _topping.Add(h);
-            }
-            _topping.Add(0);
-            _PriceText.text = 20.ToString();
-        }
-        else if (Memory.Ins._ordernum >= 41)
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                int h = 0;
-
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 6);
-                }
-                _topping.Add(h);
-            }
-            _topping.Add(0);
-            _PriceText.text = 22.ToString();
-        }
+        
     }
 
     void ImageChange(int a, int b)

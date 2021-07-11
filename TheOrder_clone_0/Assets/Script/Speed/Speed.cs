@@ -176,9 +176,6 @@ public class Speed : MonoBehaviour
             }
         }
 
-        
-        
-
         _ORDERNUM.text = "" + _ordernum.ToString();
         _BESTSPEEDNUM.text = "" + S_Game.Ins._Time.ToString();
         _Reward.text = "" + string.Format("{0:#,###0}", _Money.ToString());

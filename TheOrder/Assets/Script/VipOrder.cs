@@ -39,11 +39,11 @@ public class VipOrder : MonoBehaviour
         if (other.gameObject.tag == "Side")
         {
             Game.Ins.vibOn();
-            Game.Ins._class.fillAmount += 0.10f;
+            Game.Ins._class.fillAmount += 0.7f;
             OrderShow.Ins._CVipOrder.Remove(_orderpaper);
             Destroy(_orderpaper);
 
-            OrderShow.Ins._Money -= 150;
+            OrderShow.Ins._Money -= 7;
             OrderShow.Ins._Reward.text = "" + string.Format("{0:#,###0}", OrderShow.Ins._Money);
             OrderShow.Ins._Chochoice = true;
             OrderShow.Ins._VipSpeedbool = true;

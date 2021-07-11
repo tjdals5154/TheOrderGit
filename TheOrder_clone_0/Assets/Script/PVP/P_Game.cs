@@ -24,8 +24,8 @@ public class P_Game : NetworkBehaviour
             return _instance;
         }
     }
-    public int _Win;
-    public int _Win2;
+    
+
     public Text _WinText;
     public Text _WinText2;
 
@@ -70,6 +70,8 @@ public class P_Game : NetworkBehaviour
     [SerializeField]
     public Toggle _to;
 
+    
+
     void Awake()
     {
         
@@ -85,9 +87,8 @@ public class P_Game : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //_MATCHNAME.text = PlayerPrefs.GetString("Sign");
+        //_MATCHNAME.text = HamburgerPlayer.Ins.playerName;
         //_MATCHNAME.text = _MATCHNAME.text.ToString();
-        _MATCHNAME.text = 
 
         _RENAME.text = PlayerPrefs.GetString("Sign");
         _RENAME.text = _RENAME.text.ToString();
@@ -144,28 +145,11 @@ public class P_Game : NetworkBehaviour
         //}
         //NetworkRoomPlayer.Ins.readyToBegin = true;
         _Matching = true;
+
+
         
-        WL();
     }
 
-    public void ShowPlayerName()
-    {
-        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
-        foreach (HamburgerPlayer p in playerlist)
-        {
-            NetworkIdentity n = p.netIdentity;
-
-            if (NetworkClient.active && n.isLocalPlayer)
-            {
-                _MATCHNAME.text = p.playerName;
-            }
-            else
-            {
-                _MATCHNAME2.text = p.playerName;
-            }
-        }
-    }
-    
 
     // Update is called once per frame
     void Update()
@@ -213,7 +197,7 @@ public class P_Game : NetworkBehaviour
         Shutter();
         if (Input.GetKey(KeyCode.D))
         {
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteKey("Money");
         }
 
         //if (_class.fillAmount > 0.88f)
@@ -237,6 +221,23 @@ public class P_Game : NetworkBehaviour
         
     }
 
+    public void ShowPlayerName()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                _MATCHNAME.text = p.playerName;
+            }
+            else
+            {
+                _MATCHNAME2.text = p.playerName;
+            }
+        }
+    }
+
     public void WL()
     {
         HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
@@ -246,7 +247,11 @@ public class P_Game : NetworkBehaviour
 
             if (NetworkClient.active && n.isLocalPlayer)
             {
-                p.WL();
+                _WinText.text = "" + (int)p._Win;
+            }
+            else
+            {
+                _WinText2.text = "" + (int)p._Win;
             }
         }
     }
@@ -263,17 +268,6 @@ public class P_Game : NetworkBehaviour
                 p.Over();
             }
         }
-    }
-
-    public void MyWin()
-    {
-        _Win = PlayerPrefs.GetInt("Win", 0);
-        _WinText.text = "" + (int)_Win;
-    }
-    public void YourWin()
-    {
-        _Win2 = PlayerPrefs.GetInt("Win", 0);
-        _WinText2.text = "" + (int)_Win2;
     }
 
     void Shutter()

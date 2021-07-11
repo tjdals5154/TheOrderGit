@@ -31,9 +31,9 @@ public class PVPRoom : NetworkBehaviour
 
     int _WinInt;
     public Text _WinText;
-
-    public int _LoseInt;
+    int _LoseInt;
     public Text _LoseText;
+
 
     public GameObject _Win;
     public GameObject _Lose;
@@ -57,7 +57,6 @@ public class PVPRoom : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         _PVPInt = PlayerPrefs.GetInt("PVP", 0);
         _PVPText.text = "" + (int)_PVPInt;
 
@@ -69,12 +68,6 @@ public class PVPRoom : NetworkBehaviour
         {
             _WinInt = PlayerPrefs.GetInt("Win", 0);
             _WinText.text = "" + (int)_WinInt;
-        }
-
-        if (PlayerPrefs.HasKey("Lose"))
-        {
-            _LoseInt = PlayerPrefs.GetInt("Lose", 0);
-            _LoseText.text = "" + (int)_LoseInt;
         }
 
         //NetworkRoomManager netRoomMgr = FindObjectOfType<NetworkRoomManager>();

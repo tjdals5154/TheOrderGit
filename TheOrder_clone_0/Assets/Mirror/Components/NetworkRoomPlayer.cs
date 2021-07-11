@@ -56,7 +56,7 @@ namespace Mirror
 
         #region Unity Callbacks
 
-        
+
 
         /// <summary>
         /// Do not use Start - Override OnStartHost / OnStartClient instead!
@@ -80,6 +80,7 @@ namespace Mirror
                     room.CallOnClientEnterRoom();
             }
             else Debug.LogError("RoomPlayer could not find a NetworkRoomManager. The RoomPlayer requires a NetworkRoomManager object to function. Make sure that there is one in the scene.");
+
 
         }
 

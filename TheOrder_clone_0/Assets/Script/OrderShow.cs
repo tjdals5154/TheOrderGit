@@ -65,7 +65,7 @@ public class OrderShow : MonoBehaviour
         _wrong = false;
         _BESTordernum = PlayerPrefs.GetInt("TopScore", 0);
         
-        InvokeRepeating("New", 1f, 4f);
+        InvokeRepeating("New", 1f, 2.73f);
         //StopCoroutine("New");
     }
 
@@ -132,25 +132,29 @@ public class OrderShow : MonoBehaviour
     }
     void ClassSpeed()
     {
-        if (_ordernum < 6)
-        {
-            Game.Ins._class.fillAmount += 0.00010f;
-        }
-        else if (_ordernum < 21)
-        {
-            Game.Ins._class.fillAmount += 0.00015f;
-        }
-        else if (_ordernum < 31)
-        {
-            Game.Ins._class.fillAmount += 0.00020f;
-        }
-        else if (_ordernum < 41)
+        if (_ordernum < 11)
         {
             Game.Ins._class.fillAmount += 0.00025f;
         }
-        else if (_ordernum >= 41)
+        else if (_ordernum < 31)
         {
             Game.Ins._class.fillAmount += 0.00030f;
+        }
+        else if (_ordernum < 51)
+        {
+            Game.Ins._class.fillAmount += 0.00035f;
+        }
+        else if (_ordernum < 71)
+        {
+            Game.Ins._class.fillAmount += 0.00040f;
+        }
+        else if (_ordernum < 91)
+        {
+            Game.Ins._class.fillAmount += 0.00045f;
+        }
+        else if (_ordernum >= 91)
+        {
+            Game.Ins._class.fillAmount += 0.00045f;
         }
     }
 
@@ -164,57 +168,89 @@ public class OrderShow : MonoBehaviour
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 100 * Time.deltaTime);
             }
-            else if (paper._orderNum < 9)
+            else if (paper._orderNum < 11)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 110 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 16)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 120 * Time.deltaTime);
             }
-            else if (paper._orderNum < 11)
+            else if (paper._orderNum < 21)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 130 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 26)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 140 * Time.deltaTime);
             }
-            else if (paper._orderNum < 13)
+            else if (paper._orderNum < 31)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 150 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 36)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 160 * Time.deltaTime);
             }
-            else if (paper._orderNum < 15)
+            else if (paper._orderNum < 41)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 170 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 46)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 180 * Time.deltaTime);
             }
-            else if (paper._orderNum < 17)
+            else if (paper._orderNum < 51)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 190 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 56)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 200 * Time.deltaTime);
             }
-            else if (paper._orderNum < 19)
+            else if (paper._orderNum < 61)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 210 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 66)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 220 * Time.deltaTime);
             }
-            else if (paper._orderNum < 21)
+            else if (paper._orderNum < 71)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 230 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 76)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 240 * Time.deltaTime);
             }
-            else if (paper._orderNum < 23)
+            else if (paper._orderNum < 81)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 250 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 86)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 260 * Time.deltaTime);
             }
-            else if (paper._orderNum < 25)
+            else if (paper._orderNum < 91)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 270 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 96)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 280 * Time.deltaTime);
             }
-            else if (paper._orderNum < 27)
+            else if (paper._orderNum < 101)
+            {
+                _Corderpaper[i].transform.Translate(Vector2.right * 290 * Time.deltaTime);
+            }
+            else if (paper._orderNum < 106)
             {
                 _Corderpaper[i].transform.Translate(Vector2.right * 300 * Time.deltaTime);
             }
-            else if (paper._orderNum < 29)
+            else if (paper._orderNum >= 106)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 320 * Time.deltaTime);
-            }
-            else if (paper._orderNum < 31)
-            {
-                _Corderpaper[i].transform.Translate(Vector2.right * 340 * Time.deltaTime);
-            }
-            else if (paper._orderNum >= 31)
-            {
-                _Corderpaper[i].transform.Translate(Vector2.right * 340 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 300 * Time.deltaTime);
             }
         }
     }
@@ -284,35 +320,41 @@ public class OrderShow : MonoBehaviour
                     //}
                     //Debug.Log("오더 삭제: " + tempStr);
 
-                    if (_ordernum < 6)
+                    if (_ordernum < 11)
                     {
                         _Money += 3;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
                         Game.Ins._class.fillAmount -= 0.10f;
                     }
-                    else if (_ordernum < 21)
+                    else if (_ordernum < 31)
                     {
                         _Money += 5;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
+                        Game.Ins._class.fillAmount -= 0.12f;
+                    }
+                    else if (_ordernum < 51)
+                    {
+                        _Money += 7;
+                        _Reward.text = "" + string.Format("{0:#,###0}", _Money);
                         Game.Ins._class.fillAmount -= 0.15f;
                     }
-                    else if (_ordernum < 31)
+                    else if (_ordernum < 71)
                     {
-                        _Money += 8;
+                        _Money += 10;
+                        _Reward.text = "" + string.Format("{0:#,###0}", _Money);
+                        Game.Ins._class.fillAmount -= 0.17f;
+                    }
+                    else if (_ordernum < 91)
+                    {
+                        _Money += 12;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
                         Game.Ins._class.fillAmount -= 0.20f;
                     }
-                    else if (_ordernum < 41)
+                    else if (_ordernum >= 91)
                     {
                         _Money += 12;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        Game.Ins._class.fillAmount -= 0.25f;
-                    }
-                    else if (_ordernum >= 41)
-                    {
-                        _Money += 12;
-                        _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        Game.Ins._class.fillAmount -= 0.25f;
+                        Game.Ins._class.fillAmount -= 0.20f;
                     }
                     _Corderpaper.Remove(op.gameObject);
                     Destroy(op.gameObject);
@@ -360,7 +402,7 @@ public class OrderShow : MonoBehaviour
 
                     _Money += 50;
                     _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                    Game.Ins._class.fillAmount -= 0.10f;
+                    Game.Ins._class.fillAmount -= 0.15f;
 
                     _CVipOrder.Remove(op2.gameObject);
                     Destroy(op2.gameObject);

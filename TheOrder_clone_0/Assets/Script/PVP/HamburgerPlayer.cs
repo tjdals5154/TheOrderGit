@@ -23,21 +23,17 @@ public class HamburgerPlayer : NetworkBehaviour
             return _instance;
         }
     }
-
     [SyncVar]
     public string playerName;
 
-    
+    [SyncVar]
+    public int _Win;
+
     void Start()
     {
-        if( isLocalPlayer )
-            playerName = PlayerPrefs.GetString("Sign");
-
-        // 네트워크 플레이어(로드된 햄버거 프리팹)를 찾아서 Canvas 자식 객체로 만들어주기
-        // NetworkIdentity 
 
         Canvas canvas = FindObjectOfType<Canvas>();
-
+        
         NetworkIdentity netId = GetComponent<NetworkIdentity>();
 
         if (netId.hasAuthority)
@@ -51,45 +47,48 @@ public class HamburgerPlayer : NetworkBehaviour
         }
 
         netId.transform.parent = canvas.transform;
-    }
 
-    [Command]
-    public void WL()
-    {
-        WLRPC();
-    }
-    [ClientRpc]
-    public void WLRPC()
-    {
+        
         if (isLocalPlayer)
         {
-            P_Game.Ins.MyWin();
+            playerName = PlayerPrefs.GetString("Sign");
         }
-        else
+
+        if (isLocalPlayer)
         {
-            P_Game.Ins.YourWin();
+            _Win = PlayerPrefs.GetInt("Win", 0);
         }
+
+
+        P_Game.Ins.WL();
+        P_Game.Ins.ShowPlayerName();
+
+
     }
+
+    
 
     [Command]
     public void Over()
     {
         OverRPC();
+
     }
     [ClientRpc]
     public void OverRPC()
     {
         if (isLocalPlayer)
         {
-            //P_Game.Ins._class.fillAmount = 1;
-            //PVP.Ins.Lose();
+            P_Game.Ins._class.fillAmount = 1;
+            PVP.Ins.LoseL();
         }
         else
         {
-            //P_Game.Ins._class.fillAmount = 1;
-            //PVP.Ins.Win();
+            P_Game.Ins._class.fillAmount = 1;
+            PVP.Ins.LoseNL();
         }
     }
+
 
     [Command]
     public void PVPBTn()

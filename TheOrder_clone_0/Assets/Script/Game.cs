@@ -98,9 +98,10 @@ public class Game : MonoBehaviour
         SoundManager.Ins.TimerSource = SoundManager.Ins._Timer.GetComponent<AudioSource>();
 
         Shutter();
+
         if (Input.GetKey(KeyCode.D))
         {
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteKey("Money");
         }
 
         if (_class.fillAmount > 0.88f )

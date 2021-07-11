@@ -56,7 +56,7 @@ public class Memory : MonoBehaviour
         _wrong = false;
         _BESTMemory = PlayerPrefs.GetInt("Memory", 0);
 
-        InvokeRepeating("New", 1f, 2f);
+        InvokeRepeating("New", 1f, 2.3f);
         //StopCoroutine("New");
     }
 
@@ -102,25 +102,9 @@ public class Memory : MonoBehaviour
     }
     void ClassSpeed()
     {
-        if (_ordernum < 6)
+        if (_ordernum >= 1)
         {
-            M_Game.Ins._class.fillAmount += 0.00010f;
-        }
-        else if (_ordernum < 21)
-        {
-            M_Game.Ins._class.fillAmount += 0.00020f;
-        }
-        else if (_ordernum < 31)
-        {
-            M_Game.Ins._class.fillAmount += 0.00030f;
-        }
-        else if (_ordernum < 41)
-        {
-            M_Game.Ins._class.fillAmount += 0.00040f;
-        }
-        else if (_ordernum >= 41)
-        {
-            M_Game.Ins._class.fillAmount += 0.00050f;
+            M_Game.Ins._class.fillAmount += 0.00025f;
         }
     }
 
@@ -130,7 +114,7 @@ public class Memory : MonoBehaviour
         {
             M_OrderPaper paper = _Corderpaper[i].GetComponent<M_OrderPaper>();
 
-            if (paper._s > 1.5f)
+            if (paper._s > 3.3f)
             {
                 paper._memory.SetActive(true);
 
@@ -146,26 +130,11 @@ public class Memory : MonoBehaviour
         {
             M_OrderPaper paper = _Corderpaper[i].GetComponent<M_OrderPaper>();
 
-            if (paper._orderNum < 6)
+            if (paper._orderNum >= 1)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 50 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 120 * Time.deltaTime);
             }
-            else if (paper._orderNum < 21)
-            {
-                _Corderpaper[i].transform.Translate(Vector2.right * 100 * Time.deltaTime);
-            }
-            else if (paper._orderNum < 31)
-            {
-                _Corderpaper[i].transform.Translate(Vector2.right * 130 * Time.deltaTime);
-            }
-            else if (paper._orderNum < 41)
-            {
-                _Corderpaper[i].transform.Translate(Vector2.right * 180 * Time.deltaTime);
-            }
-            else if (paper._orderNum >= 41)
-            {
-                _Corderpaper[i].transform.Translate(Vector2.right * 200 * Time.deltaTime);
-            }
+            
         }
     }
 
@@ -179,9 +148,9 @@ public class Memory : MonoBehaviour
 
         if (_wrong == false)
         {
-            _Money -= 50;
+            //_Money -= 5;
             _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-            M_Game.Ins._class.fillAmount += 0.005f;
+            M_Game.Ins._class.fillAmount += 0.05f;
             SoundManager.Ins.PlaySound(SoundManager.FxTypes.BellFSound);
             _Combo = 0;
             _ComboText.text = _Combo.ToString();
@@ -212,37 +181,13 @@ public class Memory : MonoBehaviour
                     op._numText[8].text == M_Button.Ins._numText[8].text &&
                     op._numText[9].text == M_Button.Ins._numText[9].text)
                 {
-
-                    if (_ordernum < 6)
+                    if (_ordernum >= 1)
                     {
-                        _Money += 10;
+                        _Money += 1;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
                         M_Game.Ins._class.fillAmount -= 0.10f;
                     }
-                    else if (_ordernum < 21)
-                    {
-                        _Money += 15;
-                        _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        M_Game.Ins._class.fillAmount -= 0.15f;
-                    }
-                    else if (_ordernum < 31)
-                    {
-                        _Money += 18;
-                        _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        M_Game.Ins._class.fillAmount -= 0.20f;
-                    }
-                    else if (_ordernum < 41)
-                    {
-                        _Money += 20;
-                        _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        M_Game.Ins._class.fillAmount -= 0.25f;
-                    }
-                    else if (_ordernum >= 41)
-                    {
-                        _Money += 22;
-                        _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        M_Game.Ins._class.fillAmount -= 0.25f;
-                    }
+                    
                     _Corderpaper.Remove(op.gameObject);
                     Destroy(op.gameObject);
 

@@ -166,9 +166,9 @@ public class Lobby : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteKey("Money");
         }
         _Money = PlayerPrefs.GetInt("Money", 0);
         _MoneyT.text = "" + string.Format("{0:#,###0}", _Money);
@@ -335,9 +335,6 @@ public class Lobby : NetworkBehaviour
 
         _PVPname.text = _Ca.ToString();
         PlayerPrefs.SetString("Sign", _PVPname.text);
-
-        
-
 
     }
 

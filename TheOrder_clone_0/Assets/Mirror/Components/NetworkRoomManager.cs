@@ -351,6 +351,8 @@ namespace Mirror
             }
             else
                 OnRoomServerAddPlayer(conn);
+
+
         }
 
         [Server]
@@ -582,6 +584,8 @@ namespace Mirror
         /// <returns>The new room-player object.</returns>
         public virtual GameObject OnRoomServerCreateRoomPlayer(NetworkConnection conn)
         {
+            
+
             return null;
         }
 
@@ -594,6 +598,8 @@ namespace Mirror
         /// <returns>A new GamePlayer object.</returns>
         public virtual GameObject OnRoomServerCreateGamePlayer(NetworkConnection conn, GameObject roomPlayer)
         {
+            Debug.Log("[OnRoomServerCreateGamePlayer] : " + conn.identity.gameObject.name);
+
             return null;
         }
 

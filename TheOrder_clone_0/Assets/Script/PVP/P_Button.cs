@@ -175,8 +175,8 @@ public class P_Button : NetworkBehaviour
         {
             Destroy(m, 0f);
         }
-        //_BunDown.sprite = _BDown;
-        //_BunUp.sprite = _BDown;
+        _BunDown.sprite = _BDown;
+        _BunUp.sprite = _BDown;
     }
     
     public void _Done2()
@@ -248,8 +248,8 @@ public class P_Button : NetworkBehaviour
 
         _tempCount++;
 
-        //_BunDown.sprite = _BUp;
-        //_BunUp.sprite = _BUp;
+        _BunDown.sprite = _BUp;
+        _BunUp.sprite = _BUp;
     }
 
     

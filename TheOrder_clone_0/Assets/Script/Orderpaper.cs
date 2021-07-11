@@ -31,6 +31,7 @@ public class Orderpaper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -50,7 +51,7 @@ public class Orderpaper : MonoBehaviour
 
     void Level()
     {
-        if (OrderShow.Ins._ordernum < 6)
+        if (OrderShow.Ins._ordernum < 11)
         {
             for (int i = 0; i < 4; i++)
             {
@@ -65,7 +66,7 @@ public class Orderpaper : MonoBehaviour
             _topping.Add(0);
             _PriceText.text = 3.ToString();
         }
-        else if (OrderShow.Ins._ordernum < 21)
+        else if (OrderShow.Ins._ordernum < 31)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -80,7 +81,7 @@ public class Orderpaper : MonoBehaviour
             _topping.Add(0);
             _PriceText.text = 5.ToString();
         }
-        else if (OrderShow.Ins._ordernum < 31)
+        else if (OrderShow.Ins._ordernum < 51)
         {
             for (int i = 0; i < 7; i++)
             {
@@ -88,14 +89,29 @@ public class Orderpaper : MonoBehaviour
 
                 if (0 < i && i < 9)
                 {
-                    h = Random.Range(1, 5);
+                    h = Random.Range(1, 6);
                 }
                 _topping.Add(h);
             }
             _topping.Add(0);
-            _PriceText.text = 8.ToString();
+            _PriceText.text = 7.ToString();
         }
-        else if (OrderShow.Ins._ordernum < 41)
+        else if (OrderShow.Ins._ordernum < 71)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                int h = 0;
+
+                if (0 < i && i < 9)
+                {
+                    h = Random.Range(1, 6);
+                }
+                _topping.Add(h);
+            }
+            _topping.Add(0);
+            _PriceText.text = 10.ToString();
+        }
+        else if (OrderShow.Ins._ordernum < 91)
         {
             for (int i = 0; i < 9; i++)
             {
@@ -110,7 +126,7 @@ public class Orderpaper : MonoBehaviour
             _topping.Add(0);
             _PriceText.text = 12.ToString();
         }
-        else if (OrderShow.Ins._ordernum >= 41)
+        else if (OrderShow.Ins._ordernum >= 91)
         {
             for (int i = 0; i < 9; i++)
             {

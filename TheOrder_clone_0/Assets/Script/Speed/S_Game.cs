@@ -102,7 +102,7 @@ public class S_Game : MonoBehaviour
         Shutter();
         if (Input.GetKey(KeyCode.D))
         {
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteKey("Money");
         }
 
         //if (_class.fillAmount > 0.88f)

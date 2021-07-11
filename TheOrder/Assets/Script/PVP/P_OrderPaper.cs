@@ -47,30 +47,15 @@ public class P_OrderPaper : NetworkBehaviour
             Destroy(_orderpaper);
 
             //PVP.Ins._Money -= 7;
-            PVP.Ins._Reward.text = "" + string.Format("{0:#,###0}", PVP.Ins._Money);
+            //PVP.Ins._Reward.text = "" + string.Format("{0:#,###0}", PVP.Ins._Money);
             //P_Game.Ins._class.fillAmount = 1;
-            //P_Game.Ins.Over();
+            P_Game.Ins.Over();
         }
     }
 
     void Level()
     {
-        if (PVP.Ins._ordernum < 6)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                int h = 0;
-
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 5);
-                }
-                _topping.Add(h);
-            }
-            _topping.Add(0);
-            _PriceText.text = 3.ToString();
-        }
-        else if (PVP.Ins._ordernum < 21)
+        if (PVP.Ins._ordernum >= 1)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -83,53 +68,9 @@ public class P_OrderPaper : NetworkBehaviour
                 _topping.Add(h);
             }
             _topping.Add(0);
-            _PriceText.text = 5.ToString();
+            _PriceText.text = 0.ToString();
         }
-        else if (PVP.Ins._ordernum < 31)
-        {
-            for (int i = 0; i < 7; i++)
-            {
-                int h = 0;
-
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 5);
-                }
-                _topping.Add(h);
-            }
-            _topping.Add(0);
-            _PriceText.text = 8.ToString();
-        }
-        else if (PVP.Ins._ordernum < 41)
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                int h = 0;
-
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 6);
-                }
-                _topping.Add(h);
-            }
-            _topping.Add(0);
-            _PriceText.text = 12.ToString();
-        }
-        else if (PVP.Ins._ordernum >= 41)
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                int h = 0;
-
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 6);
-                }
-                _topping.Add(h);
-            }
-            _topping.Add(0);
-            _PriceText.text = 12.ToString();
-        }
+        
     }
 
     public void ImageChange(int a, int b)
