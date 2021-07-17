@@ -44,9 +44,6 @@ public class PVP : NetworkBehaviour
     public Text _ShMyOrder;
     public Text _ShMyOrder2;
 
-    public Text _MATCHNAME;
-    public Text _MATCHNAME2;
-
     public float _RandomTime = 0;
 
     public float _ResetTime;
@@ -80,7 +77,6 @@ public class PVP : NetworkBehaviour
         //StopCoroutine("New");
         InvokeRepeating("New", 1f, 2.5f);
 
-        
     }
 
     // Update is called once per frame
@@ -132,23 +128,8 @@ public class PVP : NetworkBehaviour
             Speed();
         }
     }
-    public void ShowPlayerName()
-    {
-        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
-        foreach (HamburgerPlayer p in playerlist)
-        {
-            NetworkIdentity n = p.netIdentity;
-            if (NetworkClient.active && n.isLocalPlayer)
-            {
-                p.PVPName();
-                //_MATCHNAME.text = p.playerName;
-            }
-            //else
-            //{
-            //    _MATCHNAME2.text = p.playerName;
-            //}
-        }
-    }
+
+    
 
     public void PVPB()
     {
@@ -164,6 +145,7 @@ public class PVP : NetworkBehaviour
         }
     }
 
+
     public void LoseL()
     {
         //HamburgerPlayer.Ins._Win += 1;
@@ -172,9 +154,8 @@ public class PVP : NetworkBehaviour
         _lose1.SetActive(false);
         _win2.SetActive(true);
         _lose2.SetActive(true);
-
-
     }
+
     public void LoseNL()
     {
         HamburgerPlayer.Ins._Win += 1;
@@ -226,6 +207,8 @@ public class PVP : NetworkBehaviour
             
         }
     }
+
+
     public void OnFinishBtn()
     {
         Same();
@@ -264,14 +247,6 @@ public class PVP : NetworkBehaviour
         _ShMyOrder2.text = _PVP2.ToString();
     }
 
-    public void PVPName()
-    {
-        
-    }
-    public void PVPName2()
-    {
-        
-    }
 
     public void Same()
     {

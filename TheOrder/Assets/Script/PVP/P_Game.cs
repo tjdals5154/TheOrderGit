@@ -49,10 +49,10 @@ public class P_Game : NetworkBehaviour
     public float _Count;
     public Text _CountText;
 
-    //public Text _MATCHNAME;
+    public Text _MATCHNAME;
     public Text _RENAME;
 
-    //public Text _MATCHNAME2;
+    public Text _MATCHNAME2;
     public Text _RENAME2;
 
     public bool _Matching;
@@ -237,6 +237,41 @@ public class P_Game : NetworkBehaviour
             else
             {
                 _WinText2.text = "" + (int)p._Win;
+            }
+        }
+    }
+
+    public void ShName()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                _RENAME.text = p.playerName;
+            }
+            else
+            {
+                _RENAME2.text = p.playerName;
+            }
+        }
+    }
+
+    public void ShowPlayerName()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                _MATCHNAME.text = p.playerName;
+            }
+            else
+            {
+                _MATCHNAME2.text = p.playerName;
             }
         }
     }

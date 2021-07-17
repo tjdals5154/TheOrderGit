@@ -1037,7 +1037,7 @@ ScriptsOnlyBuild:
     className: PVPRoom
   - hash:
       serializedVersion: 2
-      Hash: 47aa58c0b1cd8ec555926e8bbbe7387e
+      Hash: 2661c77f9610b0ac828d1fe757514dfd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: HamburgerPlayer

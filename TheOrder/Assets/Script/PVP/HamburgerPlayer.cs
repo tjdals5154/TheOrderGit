@@ -28,8 +28,8 @@ public class HamburgerPlayer : NetworkBehaviour
     [SyncVar]
     public int _Win;
 
+    [SyncVar]
     public string playerName;
-    public string playerName2;
 
     void Start()
     {
@@ -56,7 +56,13 @@ public class HamburgerPlayer : NetworkBehaviour
             _Win = PlayerPrefs.GetInt("Win", 0);
         }
 
-        PVP.Ins.ShowPlayerName();
+        if (isLocalPlayer)
+        {
+            playerName = PlayerPrefs.GetString("Sign");
+        }
+
+        P_Game.Ins.ShName();
+        P_Game.Ins.ShowPlayerName();
         P_Game.Ins.WL();
 
     }
@@ -80,29 +86,6 @@ public class HamburgerPlayer : NetworkBehaviour
         {
             P_Game.Ins._class.fillAmount = 1;
             PVP.Ins.LoseNL();
-        }
-    }
-
-    [Command]
-    public void PVPName()
-    {
-        PVPNameRPC();
-    }
-    [ClientRpc]
-    public void PVPNameRPC()
-    {
-        if (isLocalPlayer)
-        {
-            playerName = PlayerPrefs.GetString("Sign");
-            PVP.Ins._MATCHNAME.text = playerName.ToString();
-            //PVP.Ins.PVPName();
-        }
-        else
-        {
-            playerName2 = PlayerPrefs.GetString("Sign");
-            PVP.Ins._MATCHNAME2.text = playerName2.ToString();
-            
-            //PVP.Ins.PVPName2();
         }
     }
 
