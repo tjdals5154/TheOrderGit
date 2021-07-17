@@ -89,7 +89,7 @@ public class Orderpaper : MonoBehaviour
 
                 if (0 < i && i < 9)
                 {
-                    h = Random.Range(1, 6);
+                    h = Random.Range(1, 5);
                 }
                 _topping.Add(h);
             }

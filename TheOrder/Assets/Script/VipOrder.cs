@@ -39,7 +39,7 @@ public class VipOrder : MonoBehaviour
         if (other.gameObject.tag == "Side")
         {
             Game.Ins.vibOn();
-            Game.Ins._class.fillAmount += 0.7f;
+            Game.Ins._class.fillAmount += 0.07f;
             OrderShow.Ins._CVipOrder.Remove(_orderpaper);
             Destroy(_orderpaper);
 

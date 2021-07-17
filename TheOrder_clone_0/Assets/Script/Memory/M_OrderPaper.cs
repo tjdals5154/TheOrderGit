@@ -54,7 +54,7 @@ public class M_OrderPaper : MonoBehaviour
 
     void Level()
     {
-        if (Memory.Ins._ordernum >= 1)
+        if (Memory.Ins._ordernum < 31)
         {
             for (int i = 0; i < 6; i++)
             {
@@ -69,7 +69,67 @@ public class M_OrderPaper : MonoBehaviour
             _topping.Add(0);
             _PriceText.text = 1.ToString();
         }
-        
+        else if (Memory.Ins._ordernum < 51)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                int h = 0;
+
+                if (0 < i && i < 9)
+                {
+                    h = Random.Range(1, 5);
+                }
+                _topping.Add(h);
+            }
+            _topping.Add(0);
+            _PriceText.text = 1.ToString();
+        }
+        else if (Memory.Ins._ordernum < 61)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                int h = 0;
+
+                if (0 < i && i < 9)
+                {
+                    h = Random.Range(1, 5);
+                }
+                _topping.Add(h);
+            }
+            _topping.Add(0);
+            _PriceText.text = 1.ToString();
+        }
+        else if (Memory.Ins._ordernum < 71)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                int h = 0;
+
+                if (0 < i && i < 9)
+                {
+                    h = Random.Range(1, 5);
+                }
+                _topping.Add(h);
+            }
+            _topping.Add(0);
+            _PriceText.text = 1.ToString();
+        }
+        else if (Memory.Ins._ordernum >= 71)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                int h = 0;
+
+                if (0 < i && i < 9)
+                {
+                    h = Random.Range(1, 5);
+                }
+                _topping.Add(h);
+            }
+            _topping.Add(0);
+            _PriceText.text = 1.ToString();
+        }
+
     }
 
     void ImageChange(int a, int b)

@@ -336,25 +336,25 @@ public class OrderShow : MonoBehaviour
                     {
                         _Money += 7;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        Game.Ins._class.fillAmount -= 0.15f;
+                        Game.Ins._class.fillAmount -= 0.14f;
                     }
                     else if (_ordernum < 71)
                     {
                         _Money += 10;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        Game.Ins._class.fillAmount -= 0.17f;
+                        Game.Ins._class.fillAmount -= 0.16f;
                     }
                     else if (_ordernum < 91)
                     {
                         _Money += 12;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        Game.Ins._class.fillAmount -= 0.20f;
+                        Game.Ins._class.fillAmount -= 0.18f;
                     }
                     else if (_ordernum >= 91)
                     {
                         _Money += 12;
                         _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                        Game.Ins._class.fillAmount -= 0.20f;
+                        Game.Ins._class.fillAmount -= 0.18f;
                     }
                     _Corderpaper.Remove(op.gameObject);
                     Destroy(op.gameObject);
@@ -400,9 +400,9 @@ public class OrderShow : MonoBehaviour
                     //}
                     //Debug.Log("오더 삭제: " + tempStr);
 
-                    _Money += 50;
+                    _Money += 30;
                     _Reward.text = "" + string.Format("{0:#,###0}", _Money);
-                    Game.Ins._class.fillAmount -= 0.15f;
+                    Game.Ins._class.fillAmount -= 0.10f;
 
                     _CVipOrder.Remove(op2.gameObject);
                     Destroy(op2.gameObject);

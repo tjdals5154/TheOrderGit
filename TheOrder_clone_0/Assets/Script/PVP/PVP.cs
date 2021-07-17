@@ -44,6 +44,9 @@ public class PVP : NetworkBehaviour
     public Text _ShMyOrder;
     public Text _ShMyOrder2;
 
+    public Text _MATCHNAME;
+    public Text _MATCHNAME2;
+
     public float _RandomTime = 0;
 
     public float _ResetTime;
@@ -63,7 +66,7 @@ public class PVP : NetworkBehaviour
     // Start is called before the first frame update
     public void Awake()
     {
-
+        
     }
 
     void Start()
@@ -73,7 +76,6 @@ public class PVP : NetworkBehaviour
         _Chochoice = true;
         _wrong = false;
         _BESTPVP = PlayerPrefs.GetInt("PVP", 0);
-
 
         //StopCoroutine("New");
         InvokeRepeating("New", 1f, 2.5f);
@@ -99,6 +101,8 @@ public class PVP : NetworkBehaviour
         //_PVPNUM2.text = "" + _PVP;
         _ShMyOrder.text = "" + _PVP;
         _ShMyOrder2.text = "" + _PVP2;
+
+        
 
         //if (isLocalPlayer)
         //{
@@ -128,6 +132,24 @@ public class PVP : NetworkBehaviour
             Speed();
         }
     }
+    public void ShowPlayerName()
+    {
+        HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
+        foreach (HamburgerPlayer p in playerlist)
+        {
+            NetworkIdentity n = p.netIdentity;
+            if (NetworkClient.active && n.isLocalPlayer)
+            {
+                p.PVPName();
+                //_MATCHNAME.text = p.playerName;
+            }
+            //else
+            //{
+            //    _MATCHNAME2.text = p.playerName;
+            //}
+        }
+    }
+
     public void PVPB()
     {
         HamburgerPlayer[] playerlist = FindObjectsOfType<HamburgerPlayer>();
@@ -240,6 +262,15 @@ public class PVP : NetworkBehaviour
         _PVP2 += 1;
         _PVPNUM2.text = _PVP2.ToString();
         _ShMyOrder2.text = _PVP2.ToString();
+    }
+
+    public void PVPName()
+    {
+        
+    }
+    public void PVPName2()
+    {
+        
     }
 
     public void Same()

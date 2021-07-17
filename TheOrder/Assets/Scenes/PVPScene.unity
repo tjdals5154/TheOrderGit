@@ -2065,6 +2065,8 @@ MonoBehaviour:
   _PVPNUM2: {fileID: 2076538179}
   _ShMyOrder: {fileID: 86993780}
   _ShMyOrder2: {fileID: 1387523555}
+  _MATCHNAME: {fileID: 1227977178}
+  _MATCHNAME2: {fileID: 1417026221}
   _RandomTime: 0
   _ResetTime: 0
   _Chochoice: 0
@@ -2136,9 +2138,7 @@ MonoBehaviour:
   _ClosedBoard: {fileID: 1806627142}
   _Count: 0
   _CountText: {fileID: 757341642}
-  _MATCHNAME: {fileID: 1227977178}
   _RENAME: {fileID: 1759090395}
-  _MATCHNAME2: {fileID: 1417026221}
   _RENAME2: {fileID: 1971480240}
   _Matching: 0
   _Bellcover: {fileID: 838399686}

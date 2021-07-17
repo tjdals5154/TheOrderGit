@@ -56,7 +56,7 @@ public class Memory : MonoBehaviour
         _wrong = false;
         _BESTMemory = PlayerPrefs.GetInt("Memory", 0);
 
-        InvokeRepeating("New", 1f, 2.3f);
+        InvokeRepeating("New", 1f, 2.5f);
         //StopCoroutine("New");
     }
 
@@ -114,7 +114,7 @@ public class Memory : MonoBehaviour
         {
             M_OrderPaper paper = _Corderpaper[i].GetComponent<M_OrderPaper>();
 
-            if (paper._s > 3.3f)
+            if (paper._s > 2.9f)
             {
                 paper._memory.SetActive(true);
 
@@ -132,7 +132,7 @@ public class Memory : MonoBehaviour
 
             if (paper._orderNum >= 1)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 120 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 110 * Time.deltaTime);
             }
             
         }
