@@ -5581,7 +5581,7 @@ MonoBehaviour:
   offlineScene: Assets/Scenes/LobbyScene.unity
   onlineScene: Assets/Scenes/PVPRoom.unity
   transport: {fileID: 628969571}
-  networkAddress: localhost
+  networkAddress: 192.168.0.3
   maxConnections: 2
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60

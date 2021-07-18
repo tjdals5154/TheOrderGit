@@ -23,13 +23,9 @@ public class P_OrderPaper : NetworkBehaviour
     {
         _topping.Clear();
 
-        Level();
+       
 
-        for (int j = 0; j < _topping.Count; j++)
-        {
-            _numText[j].text = string.Format("{0}", _topping[j]).ToString();
-            ImageChange(_topping[j], j);
-        }
+
     }
     // Update is called once per frame
     void Update()
@@ -49,29 +45,34 @@ public class P_OrderPaper : NetworkBehaviour
             //PVP.Ins._Money -= 7;
             //PVP.Ins._Reward.text = "" + string.Format("{0:#,###0}", PVP.Ins._Money);
             //P_Game.Ins._class.fillAmount = 1;
-            P_Game.Ins.Over();
+            //P_Game.Ins.Over();
         }
     }
 
-    void Level()
+    public void Level(List<int> randomList)
     {
-        if (PVP.Ins._ordernum >= 1)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                int h = 0;
+        string tempStr = "";
+        foreach (int i in randomList)
+            tempStr += i.ToString() + " ";
 
-                if (0 < i && i < 9)
-                {
-                    h = Random.Range(1, 5);
-                }
-                _topping.Add(h);
-            }
+        Debug.Log("[Client] randomList: " + tempStr);
+
+        //if (PVP.Ins._ordernum >= 1)
+        {
+            _topping.AddRange(randomList);
             _topping.Add(0);
             _PriceText.text = 0.ToString();
+
+            for (int j = 0; j < _topping.Count; j++)
+            {
+                _numText[j].text = string.Format("{0}", _topping[j]).ToString();
+                ImageChange(_topping[j], j);
+            }
         }
-        
+
+
     }
+
 
     public void ImageChange(int a, int b)
     {

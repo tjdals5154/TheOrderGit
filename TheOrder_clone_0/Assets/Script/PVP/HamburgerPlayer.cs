@@ -65,8 +65,52 @@ public class HamburgerPlayer : NetworkBehaviour
         P_Game.Ins.ShowPlayerName();
         P_Game.Ins.WL();
 
+        if (isServer && netId.gameObject.name == "Hamburger")
+        {
+           StartCoroutine(NewOrder());
+        }
     }
 
+    bool newOrderStarted = false;
+    IEnumerator NewOrder()
+    {
+        if (newOrderStarted == false)
+        {
+            newOrderStarted = true;
+
+            yield return new WaitForSeconds(5.0f);
+
+            List<int> toppings = new List<int>();
+
+            while (true)
+            {
+                toppings.Clear();
+
+                for (int i = 0; i < 5; i++)
+                {
+                    int h = 0;
+
+                    if (0 < i && i < 9)
+                    {
+                        h = Random.Range(1, 5);
+                    }
+                    toppings.Add(h);
+                }
+
+                Debug.Log("[Server] Generate Random Toppings");
+
+                RpcNewOrder(toppings);
+
+                yield return new WaitForSeconds(2.5f);
+            }
+        }
+    }
+
+    [ClientRpc]
+    void RpcNewOrder(List<int> list)
+    {
+        PVP.Ins.New(list);
+    }
 
     [Command]
     public void Over()

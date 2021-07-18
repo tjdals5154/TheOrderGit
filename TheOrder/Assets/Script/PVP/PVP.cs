@@ -74,9 +74,6 @@ public class PVP : NetworkBehaviour
         _wrong = false;
         _BESTPVP = PlayerPrefs.GetInt("PVP", 0);
 
-        //StopCoroutine("New");
-        InvokeRepeating("New", 1f, 2.5f);
-
     }
 
     // Update is called once per frame
@@ -170,29 +167,6 @@ public class PVP : NetworkBehaviour
 
 
     
-    //void ClassSpeed()
-    //{
-    //    if (_ordernum < 6)
-    //    {
-    //        P_Game.Ins._class.fillAmount += 0.00010f;
-    //    }
-    //    else if (_ordernum < 21)
-    //    {
-    //        P_Game.Ins._class.fillAmount += 0.00015f;
-    //    }
-    //    else if (_ordernum < 31)
-    //    {
-    //        P_Game.Ins._class.fillAmount += 0.00020f;
-    //    }
-    //    else if (_ordernum < 41)
-    //    {
-    //        P_Game.Ins._class.fillAmount += 0.00025f;
-    //    }
-    //    else if (_ordernum >= 41)
-    //    {
-    //        P_Game.Ins._class.fillAmount += 0.00030f;
-    //    }
-    //}
 
     void Speed()
     {
@@ -297,7 +271,7 @@ public class PVP : NetworkBehaviour
     }
 
 
-    public void New()
+    public void New(List<int> randomList)
     {
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.Printer);
         GameObject CorderPrefab = Resources.Load("C_PVP Paper") as GameObject;
@@ -308,6 +282,8 @@ public class PVP : NetworkBehaviour
 
         _Ins = Instantiate(CorderPrefab, _order, Quaternion.identity, parent);
         _Ins.gameObject.name = "C_PVP Paper_" + childCount;
+        P_OrderPaper pOrderPaer = _Ins.GetComponent<P_OrderPaper>();
+        pOrderPaer.Level(randomList);
         //_Ins.transform.SetAsFirstSibling();
 
         _Corderpaper.Add(_Ins);
