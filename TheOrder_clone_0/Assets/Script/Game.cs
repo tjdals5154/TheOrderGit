@@ -124,13 +124,7 @@ public class Game : MonoBehaviour
             }
             
         }
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            if (Input.GetKey(KeyCode.Escape))
-            {
-                Application.Quit();
-            }
-        }
+        
     }
     
     void Shutter()

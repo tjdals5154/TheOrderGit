@@ -32,6 +32,8 @@ public class Lobby : NetworkBehaviour
     public GameObject _SignBG;
     public GameObject _PVPBG;
 
+    public GameObject _Delete;
+
     public Text _PVPname;
     public Text _PVPname2;
 
@@ -55,6 +57,8 @@ public class Lobby : NetworkBehaviour
     int _clearnum;
     int _Money;
     public Text _MoneyT;
+    public Text _MoneyT2;
+    public Text _MoneyT3;
     public int _Combo;
     public Text _ComboText;
     public GameObject _ComboObj;
@@ -175,6 +179,8 @@ public class Lobby : NetworkBehaviour
 
         _Money = PlayerPrefs.GetInt("Money", 0);
         _MoneyT.text = "" + string.Format("{0:#,###0}", _Money);
+        _MoneyT2.text = "" + string.Format("{0:#,###0}", _Money);
+        _MoneyT3.text = "" + string.Format("{0:#,###0}", _Money);
 
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -183,6 +189,31 @@ public class Lobby : NetworkBehaviour
                 Application.Quit();
             }
         }
+
+        if (_Money < 0)
+        {
+            _MoneyT2.color = new Color(224 / 255f, 0 / 255f, 0 / 255f, 255 / 255f);
+        }
+        else
+        {
+            _MoneyT2.color = new Color(48 / 255f, 219 / 255f, 0 / 255f, 255 / 255f);
+        }
+    }
+
+    public void Delete()
+    {
+        SoundManager.Ins.PlaySound(SoundManager.FxTypes.ButtonSound);
+        _Delete.SetActive(true);
+    }
+    public void DeleteC()
+    {
+        SoundManager.Ins.PlaySound(SoundManager.FxTypes.ButtonSound);
+        _Delete.SetActive(false);
+    }
+    public void DeleteA()
+    {
+        SoundManager.Ins.PlaySound(SoundManager.FxTypes.ButtonSound);
+        PlayerPrefs.DeleteKey("Money");
     }
 
     void Scene()

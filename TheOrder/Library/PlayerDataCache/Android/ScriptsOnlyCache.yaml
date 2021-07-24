@@ -1244,7 +1244,7 @@ ScriptsOnlyBuild:
     className: NetworkRoomPlayer
   - hash:
       serializedVersion: 2
-      Hash: 96757748a9bdd5488c555cd88a02bd23
+      Hash: 790c810fdcdbf161fe14f489cb90e701
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Lobby
