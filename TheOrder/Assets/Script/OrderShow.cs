@@ -50,9 +50,9 @@ public class OrderShow : MonoBehaviour
     public bool _Chochoice;
     bool _wrong;
 
-
     public List<GameObject> _Corderpaper = new List<GameObject>();
     public List<GameObject> _CVipOrder = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +64,7 @@ public class OrderShow : MonoBehaviour
         _Chochoice = true;
         _wrong = false;
         _BESTordernum = PlayerPrefs.GetInt("TopScore", 0);
-        
+
         InvokeRepeating("New", 1f, 2.73f);
         //StopCoroutine("New");
     }
@@ -72,6 +72,7 @@ public class OrderShow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         VipReset();
 
         if (_Money < 0)
@@ -113,6 +114,7 @@ public class OrderShow : MonoBehaviour
         {
             Speed2();
         }
+        
     }
     void VipReset()
     {
@@ -163,6 +165,8 @@ public class OrderShow : MonoBehaviour
         for (int i = 0; i < _Corderpaper.Count; i++)
         {
             Orderpaper paper = _Corderpaper[i].GetComponent<Orderpaper>();
+
+            RectTransform rect = paper.transform as RectTransform;
 
             if (paper._orderNum < 6)
             {
@@ -273,6 +277,8 @@ public class OrderShow : MonoBehaviour
     {
         Same();
         Same2();
+
+        
         Button.Ins.Done();
 
         Button.Ins._BunDown.sprite = Button.Ins._BDown;
@@ -292,11 +298,14 @@ public class OrderShow : MonoBehaviour
             SoundManager.Ins.PlaySound(SoundManager.FxTypes.BellSound);
         }
         _wrong = false;
+
+
     }
 
     public void Same()
     {
         Orderpaper op = null;
+        
         foreach ( GameObject opObj in _Corderpaper)
         {
             op = opObj.GetComponent<Orderpaper>();
@@ -421,17 +430,21 @@ public class OrderShow : MonoBehaviour
 
     void New()
     {
+        
         SoundManager.Ins.PlaySound(SoundManager.FxTypes.Printer);
         GameObject CorderPrefab = Resources.Load("C_Order Paper") as GameObject;
+
 
         Transform parent = GameObject.Find("OrderPaper").transform;
 
         int childCount = parent.childCount;
 
         _Ins = Instantiate(CorderPrefab, _order, Quaternion.identity, parent);
+
         _Ins.gameObject.name = "C_Order Paper_" + childCount;
         //_Ins.transform.SetAsFirstSibling();
 
+        
         _Corderpaper.Add(_Ins);
 
         GameObject Level = _Ins.transform.Find("number").gameObject;

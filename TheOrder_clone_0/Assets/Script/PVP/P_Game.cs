@@ -200,6 +200,14 @@ public class P_Game : NetworkBehaviour
             PlayerPrefs.DeleteKey("Money");
         }
 
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
+
         //if (_class.fillAmount > 0.88f)
         //{
         //    if (_time == false)
@@ -218,7 +226,7 @@ public class P_Game : NetworkBehaviour
         //    }
 
         //}
-        
+
     }
 
     

@@ -120,6 +120,14 @@ public class M_Game : MonoBehaviour
                 _time = false;
             }
         }
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
     }
 
     void Shutter()

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -903,7 +903,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec18f768178438409d94a92a0cc08c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   _PVPname: {fileID: 197004744}
+  _PVPInt: 0
   _PVPText: {fileID: 1357900979}
   _WinText: {fileID: 886537282}
   _LoseText: {fileID: 1292425351}
@@ -2506,6 +2509,7 @@ GameObject:
   - component: {fileID: 1702878516}
   - component: {fileID: 1702878515}
   - component: {fileID: 1702878514}
+  - component: {fileID: 1702878517}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2578,6 +2582,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1702878517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702878513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe8a5e8ac6af2f4583a6ee0364d76ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1862798285
 GameObject:
   m_ObjectHideFlags: 0

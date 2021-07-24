@@ -11,13 +11,18 @@ public class Orderpaper : MonoBehaviour
     public Image[] _images;
     public Text[] _numText;
 
+    
+
     public Text _PriceText;
 
     public List<int> _topping = new List<int>();
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
+
         _topping.Clear();
 
         Level();

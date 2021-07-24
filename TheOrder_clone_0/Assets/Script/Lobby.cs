@@ -84,6 +84,8 @@ public class Lobby : NetworkBehaviour
 
     void Awake()
     {
+        Screen.SetResolution(Screen.width, (Screen.width * 16) / 9, true);
+
         if (PlayerPrefs.HasKey("Sign"))
         {
             _LobbyName.text = PlayerPrefs.GetString("Sign");
@@ -170,8 +172,17 @@ public class Lobby : NetworkBehaviour
         {
             PlayerPrefs.DeleteKey("Money");
         }
+
         _Money = PlayerPrefs.GetInt("Money", 0);
         _MoneyT.text = "" + string.Format("{0:#,###0}", _Money);
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
     }
 
     void Scene()

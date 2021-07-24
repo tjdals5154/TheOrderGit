@@ -23,18 +23,19 @@ public class Game : MonoBehaviour
             return _instance;
         }
     }
+
     public GameObject _MenuBG;
     bool _time;
     public GameObject _FBell;
     public GameObject _Bell;
-    public GameObject _Shutter;
+    public Image _Shutter;
     public OrderShow _ordershow;
     public bool _openbell = false;
     public bool _pause;
     public Image _class;
     public GameObject _Cover;
-    Vector2 _openShutter = new Vector2(540, 3300);
-    Vector2 _closedShutter = new Vector2(540, 1425);
+    Vector2 _openShutter = new Vector2(0, 2300);
+    Vector2 _closedShutter = new Vector2(0, 470);
     public GameObject _OpenBoard;
     public GameObject _ClosedBoard;
     bool _off;
@@ -47,6 +48,7 @@ public class Game : MonoBehaviour
 
     void Awake()
     {
+
         GameObject musicMgrObj = GameObject.Find("MusicManager");
         if( musicMgrObj == null )
         {
@@ -122,6 +124,13 @@ public class Game : MonoBehaviour
             }
             
         }
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
     }
     
     void Shutter()
@@ -137,7 +146,7 @@ public class Game : MonoBehaviour
 
                     _off = false;
                 }
-                _Shutter.transform.position = Vector2.MoveTowards(_Shutter.transform.position, _openShutter, 4200 * Time.deltaTime);
+                _Shutter.rectTransform.anchoredPosition = Vector2.MoveTowards(_Shutter.rectTransform.anchoredPosition, _openShutter, 4200 * Time.deltaTime);
             }
             else if (_class.fillAmount >= 1)
             {
@@ -148,7 +157,7 @@ public class Game : MonoBehaviour
                     SoundManager.Ins.PlaySound(SoundManager.FxTypes.ShutterSound);
                     _off = true;
                 }
-                _Shutter.transform.position = Vector2.MoveTowards(_Shutter.transform.position, _closedShutter, 4200 * Time.deltaTime);
+                _Shutter.rectTransform.anchoredPosition = Vector2.MoveTowards(_Shutter.rectTransform.anchoredPosition, _closedShutter, 4200 * Time.deltaTime);
 
                 _OpenBoard.SetActive(false);
                 _ClosedBoard.SetActive(true);

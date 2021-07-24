@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Button
+    - CameraMod
     - Combo
     - Game
     - HamburgerPlayer
@@ -128,6 +129,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14450}
     - Class: 114
       Script: {instanceID: 14470}
+    - Class: 114
+      Script: {instanceID: 16524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -239,6 +242,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14470}
     - Class: 114
       Script: {instanceID: 14538}
+    - Class: 114
+      Script: {instanceID: 16524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -316,6 +321,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14450}
     - Class: 114
       Script: {instanceID: 14470}
+    - Class: 114
+      Script: {instanceID: 16524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -377,6 +384,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13898}
     - Class: 114
       Script: {instanceID: 14426}
+    - Class: 114
+      Script: {instanceID: 16524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -450,6 +459,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14450}
     - Class: 114
       Script: {instanceID: 14470}
+    - Class: 114
+      Script: {instanceID: 16524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -529,6 +540,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14450}
     - Class: 114
       Script: {instanceID: 14470}
+    - Class: 114
+      Script: {instanceID: 16524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -608,6 +621,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14450}
     - Class: 114
       Script: {instanceID: 14470}
+    - Class: 114
+      Script: {instanceID: 16524}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1665,6 +1680,12 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.dll
     namespaceName: kcp2k
     className: KcpTransport
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraMod
   platform: 5
   scenePathNames:
   - Assets/Scenes/LobbyScene.unity
@@ -1674,4 +1695,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Speed.unity
   - Assets/Scenes/PVPScene.unity
   - Assets/Scenes/PVPRoom.unity
-  playerPath: C:/Users/82104/Desktop/TheOrder.exe
+  playerPath: "C:/Users/82104/Desktop/\uB098\uBB34\uBC1C\uBC1C\uC774/TheOrder.exe"
