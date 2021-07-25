@@ -65,7 +65,8 @@ public class OrderShow : MonoBehaviour
         _wrong = false;
         _BESTordernum = PlayerPrefs.GetInt("TopScore", 0);
 
-        InvokeRepeating("New", 1f, 2.73f);
+        InvokeRepeating("New", 1f, 3.9f);
+        //InvokeRepeating("New", 1f, 2.73f);
         //StopCoroutine("New");
     }
 
@@ -136,27 +137,27 @@ public class OrderShow : MonoBehaviour
     {
         if (_ordernum < 11)
         {
-            Game.Ins._class.fillAmount += 0.00025f;
+            Game.Ins._class.fillAmount += 0.00020f;
         }
         else if (_ordernum < 31)
         {
-            Game.Ins._class.fillAmount += 0.00030f;
+            Game.Ins._class.fillAmount += 0.00025f;
         }
         else if (_ordernum < 51)
         {
-            Game.Ins._class.fillAmount += 0.00035f;
+            Game.Ins._class.fillAmount += 0.00030f;
         }
         else if (_ordernum < 71)
         {
-            Game.Ins._class.fillAmount += 0.00040f;
+            Game.Ins._class.fillAmount += 0.00035f;
         }
         else if (_ordernum < 91)
         {
-            Game.Ins._class.fillAmount += 0.00045f;
+            Game.Ins._class.fillAmount += 0.00040f;
         }
         else if (_ordernum >= 91)
         {
-            Game.Ins._class.fillAmount += 0.00045f;
+            Game.Ins._class.fillAmount += 0.00040f;
         }
     }
 
@@ -170,91 +171,91 @@ public class OrderShow : MonoBehaviour
 
             if (paper._orderNum < 6)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 100 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 70 * Time.deltaTime);
             }
             else if (paper._orderNum < 11)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 110 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 75 * Time.deltaTime);
             }
             else if (paper._orderNum < 16)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 120 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 80 * Time.deltaTime);
             }
             else if (paper._orderNum < 21)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 130 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 85 * Time.deltaTime);
             }
             else if (paper._orderNum < 26)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 140 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 90 * Time.deltaTime);
             }
             else if (paper._orderNum < 31)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 150 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 95 * Time.deltaTime);
             }
             else if (paper._orderNum < 36)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 160 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 100 * Time.deltaTime);
             }
             else if (paper._orderNum < 41)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 170 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 105 * Time.deltaTime);
             }
             else if (paper._orderNum < 46)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 180 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 110 * Time.deltaTime);
             }
             else if (paper._orderNum < 51)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 190 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 115 * Time.deltaTime);
             }
             else if (paper._orderNum < 56)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 200 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 120 * Time.deltaTime);
             }
             else if (paper._orderNum < 61)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 210 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 125 * Time.deltaTime);
             }
             else if (paper._orderNum < 66)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 220 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 130 * Time.deltaTime);
             }
             else if (paper._orderNum < 71)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 230 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 135 * Time.deltaTime);
             }
             else if (paper._orderNum < 76)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 240 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 140 * Time.deltaTime);
             }
             else if (paper._orderNum < 81)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 250 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 145 * Time.deltaTime);
             }
             else if (paper._orderNum < 86)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 260 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 150 * Time.deltaTime);
             }
             else if (paper._orderNum < 91)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 270 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 155 * Time.deltaTime);
             }
             else if (paper._orderNum < 96)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 280 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 160 * Time.deltaTime);
             }
             else if (paper._orderNum < 101)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 290 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 165 * Time.deltaTime);
             }
             else if (paper._orderNum < 106)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 300 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 170 * Time.deltaTime);
             }
             else if (paper._orderNum >= 106)
             {
-                _Corderpaper[i].transform.Translate(Vector2.right * 300 * Time.deltaTime);
+                _Corderpaper[i].transform.Translate(Vector2.right * 170 * Time.deltaTime);
             }
         }
     }

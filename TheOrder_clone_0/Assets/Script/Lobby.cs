@@ -178,8 +178,8 @@ public class Lobby : NetworkBehaviour
         }
 
         _Money = PlayerPrefs.GetInt("Money", 0);
-        _MoneyT.text = "" + string.Format("{0:#,###0}", _Money);
-        _MoneyT2.text = "" + string.Format("{0:#,###0}", _Money);
+        _MoneyT.text = "" + string.Format("$ {0:#,###0}", _Money);
+        _MoneyT2.text = "" + string.Format("$ {0:#,###0}", _Money);
         _MoneyT3.text = "" + string.Format("{0:#,###0}", _Money);
 
         if (Application.platform == RuntimePlatform.Android)
